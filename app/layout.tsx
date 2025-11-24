@@ -33,7 +33,7 @@ export default function RootLayout({
 
           <div className="flex">
             <div className={sidebarOpen ? 'sidebar-enter' : 'sidebar-exit'}>
-              {sidebarOpen && <Sidebar/>}
+              {sidebarOpen && <Sidebar onLinkClick={() => setSidebarOpen(false)}/>}
             </div>
             {children}
           </div>

@@ -10,11 +10,17 @@ import { RiSecurePaymentLine } from 'react-icons/ri'
 import { GrTransaction } from 'react-icons/gr'
 import { FaUserFriends } from 'react-icons/fa'
 
-const Sidebar = () => {
+const Sidebar = ({ onLinkClick }) => {
     const pathname = usePathname()
 
     const isActive = (href) => {
         return pathname === href
+    }
+
+    const handleLinkClick = () => {
+        if (onLinkClick) {
+            onLinkClick()
+        }
     }
 
     return (
@@ -23,7 +29,7 @@ const Sidebar = () => {
             {/* Menu Items */}
             <div className="space-y-2">
                 {/* Dashboard */}
-                <Link href="/Dashboard">
+                <Link href="/Dashboard" onClick={handleLinkClick}>
                     <div className={`flex items-center gap-3 rounded-lg px-4 py-3 cursor-pointer transition ${
                         isActive('/Dashboard')
                             ? 'bg-linear-to-r from-purple-500 to-purple-600 text-white'
@@ -39,7 +45,7 @@ const Sidebar = () => {
                 </Link>
 
                 {/* Products */}
-                <Link href="/AllProducts">
+                <Link href="/AllProducts" onClick={handleLinkClick}>
                     <div className={`flex items-center gap-3 rounded-lg px-4 py-3 cursor-pointer transition ${
                         isActive('/AllProducts')
                             ? 'bg-linear-to-r from-purple-500 to-purple-600 text-white'
@@ -55,7 +61,7 @@ const Sidebar = () => {
                 </Link>
 
                 {/* Orders */}
-                <Link href="/OrdersList">
+                <Link href="/OrdersList" onClick={handleLinkClick}>
                     <div className={`flex items-center gap-3 rounded-lg px-4 py-3 cursor-pointer transition ${
                         isActive('/OrdersList')
                             ? 'bg-linear-to-r from-purple-500 to-purple-600 text-white'
@@ -71,7 +77,7 @@ const Sidebar = () => {
                 </Link>
 
                 {/* Payments */}
-                <Link href="/Payments">
+                <Link href="/Payments" onClick={handleLinkClick}>
                     <div className={`flex items-center gap-3 rounded-lg px-4 py-3 cursor-pointer transition ${
                         isActive('/Payments')
                             ? 'bg-linear-to-r from-purple-500 to-purple-600 text-white'
@@ -87,7 +93,7 @@ const Sidebar = () => {
                 </Link>
 
                 {/* Transactions */}
-                <Link href="/TransationsList">
+                <Link href="/TransationsList" onClick={handleLinkClick}>
                     <div className={`flex items-center gap-3 rounded-lg px-4 py-3 cursor-pointer transition ${
                         isActive('/TransationsList')
                             ? 'bg-linear-to-r from-purple-500 to-purple-600 text-white'
@@ -103,7 +109,7 @@ const Sidebar = () => {
                 </Link>
 
                 {/* Clients */}
-                <Link href="/Clints">
+                <Link href="/Clints" onClick={handleLinkClick}>
                     <div className={`flex items-center gap-3 rounded-lg px-4 py-3 cursor-pointer transition ${
                         isActive('/Clints')
                             ? 'bg-linear-to-r from-purple-500 to-purple-600 text-white'

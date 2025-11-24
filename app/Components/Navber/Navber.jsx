@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import Logo from "../../../public/photos/Logo.png"
 import ProfileImage from "../../../public/photos/Avatar.png"
 import { TbExternalLink } from 'react-icons/tb'
-import { IoIosArrowBack, IoIosArrowDown, IoIosArrowForward } from 'react-icons/io'
+import { IoIosArrowDown, IoIosArrowForward } from 'react-icons/io'
 import { BiSolidMessageDots } from 'react-icons/bi'
 import { IoNotifications } from 'react-icons/io5'
 import { RxHamburgerMenu } from 'react-icons/rx'
@@ -86,7 +86,7 @@ const Navber = ({ onToggleSidebar, sidebarOpen }) => {
                         sidebarOpen ? 'rotate-180' : 'rotate-0'
                     }`}
                 >
-                    <IoIosArrowBack />
+                    <IoIosArrowForward />
                 </button>
                 </div>
                 
