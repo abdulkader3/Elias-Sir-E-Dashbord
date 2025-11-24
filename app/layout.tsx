@@ -4,7 +4,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navber from './Components/Navber/Navber'
 import Sidebar from './Components/Sidebar/Sidebar'
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,6 +22,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    // Check if mobile on mount
+    setIsMobile(window.innerWidth < 640);
+
+    // Handle window resize
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
     <html lang="en">
@@ -35,7 +49,7 @@ export default function RootLayout({
 
             <div className={sidebarOpen ? 'sidebar-enter' : 'sidebar-exit'}>
 
-              {sidebarOpen && <Sidebar onLinkClick={() => setSidebarOpen(false)}/>}
+              {sidebarOpen && <Sidebar onLinkClick={isMobile ? () => setSidebarOpen(false) : undefined}/>}
 
             </div>
 
