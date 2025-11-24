@@ -10,7 +10,7 @@ import { IoNotifications } from 'react-icons/io5'
 import { RxHamburgerMenu } from 'react-icons/rx'
 import { AiOutlineClose } from 'react-icons/ai'
 
-const Navber = ({ onToggleSidebar }) => {
+const Navber = ({ onToggleSidebar, sidebarOpen }) => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
     return (
@@ -28,7 +28,9 @@ const Navber = ({ onToggleSidebar }) => {
                     {/* button or trigger the side button */}
                     <button 
                         onClick={onToggleSidebar}
-                        className='bg-white md:px-2 md:text-2xl rounded-full shadow-[0px_1px_1px_1px_rgba(0,_0,_0,_0.1)] hover:bg-gray-50 transition'
+                        className={`bg-white md:px-2 md:text-2xl rounded-full shadow-[0px_1px_1px_1px_rgba(0,_0,_0,_0.1)] hover:bg-gray-50 transition-transform duration-300 ${
+                            sidebarOpen ? 'rotate-180' : 'rotate-0'
+                        }`}
                     >
                         <IoIosArrowForward />
                     </button>
@@ -80,7 +82,9 @@ const Navber = ({ onToggleSidebar }) => {
                 {/* button or trigger the side button */}
                 <button 
                     onClick={onToggleSidebar}
-                    className='bg-white text-sm px-1 py-1 rounded-full shadow-[0px_1px_1px_1px_rgba(0,_0,_0,_0.1)] hover:bg-gray-50 transition'
+                    className={`bg-white text-sm px-1 py-1 rounded-full shadow-[0px_1px_1px_1px_rgba(0,_0,_0,_0.1)] hover:bg-gray-50 transition-transform duration-300 ${
+                        sidebarOpen ? 'rotate-180' : 'rotate-0'
+                    }`}
                 >
                     <IoIosArrowBack />
                 </button>

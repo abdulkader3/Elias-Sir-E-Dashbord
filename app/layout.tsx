@@ -29,10 +29,12 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <div className="">
-          <Navber onToggleSidebar={() => setSidebarOpen(!sidebarOpen)} />
+          <Navber onToggleSidebar={() => setSidebarOpen(!sidebarOpen)} sidebarOpen={sidebarOpen} />
 
           <div className="flex">
-            {sidebarOpen && <Sidebar/>}
+            <div className={sidebarOpen ? 'sidebar-enter' : 'sidebar-exit'}>
+              {sidebarOpen && <Sidebar/>}
+            </div>
             {children}
           </div>
 
