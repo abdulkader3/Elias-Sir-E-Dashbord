@@ -10,7 +10,7 @@ import { IoNotifications } from 'react-icons/io5'
 import { RxHamburgerMenu } from 'react-icons/rx'
 import { AiOutlineClose } from 'react-icons/ai'
 
-const Navber = () => {
+const Navber = ({ onToggleSidebar }) => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
     return (
@@ -26,7 +26,10 @@ const Navber = () => {
                     </div>
 
                     {/* button or trigger the side button */}
-                    <button className='bg-white md:px-2 md:text-2xl rounded-full shadow-[0px_1px_1px_1px_rgba(0,_0,_0,_0.1)]'>
+                    <button 
+                        onClick={onToggleSidebar}
+                        className='bg-white md:px-2 md:text-2xl rounded-full shadow-[0px_1px_1px_1px_rgba(0,_0,_0,_0.1)] hover:bg-gray-50 transition'
+                    >
                         <IoIosArrowForward />
                     </button>
                     </div>
@@ -75,7 +78,10 @@ const Navber = () => {
                 </div>
                 
                 {/* button or trigger the side button */}
-                <button className='bg-white text-sm px-1 py-1 rounded-full shadow-[0px_1px_1px_1px_rgba(0,_0,_0,_0.1)]'>
+                <button 
+                    onClick={onToggleSidebar}
+                    className='bg-white text-sm px-1 py-1 rounded-full shadow-[0px_1px_1px_1px_rgba(0,_0,_0,_0.1)] hover:bg-gray-50 transition'
+                >
                     <IoIosArrowBack />
                 </button>
                 </div>
