@@ -9,8 +9,8 @@ const page = () => {
   return (
     <>
 
-      <div className="w-[80%] mx-auto bg-[#E8EDF2] h-screen  md:text-5xl text-sm font-bold ">
-        <div className='gap-6 flex justify-center items-center py-6'>
+      <div className="w-full bg-[#E8EDF2] h-screen">
+        <div className='gap-6 flex justify-between items-center p-6 w-full '>
           <SellsCard />
         <SellsCard />
         <SellsCard />
