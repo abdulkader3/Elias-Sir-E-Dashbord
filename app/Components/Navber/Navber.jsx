@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import Logo from "../../../public/photos/Logo.png"
 import ProfileImage from "../../../public/photos/Avatar.png"
 import { TbExternalLink } from 'react-icons/tb'
-import { IoIosArrowDown } from 'react-icons/io'
+import { IoIosArrowBack, IoIosArrowDown, IoIosArrowForward } from 'react-icons/io'
 import { BiSolidMessageDots } from 'react-icons/bi'
 import { IoNotifications } from 'react-icons/io5'
 import { RxHamburgerMenu } from 'react-icons/rx'
@@ -17,11 +17,18 @@ const Navber = () => {
         <>
             {/* Desktop & Tablet Navigation */}
             <div className="hidden sm:flex w-full h-16 sm:h-20 lg:h-24 items-center justify-center px-4 sm:px-6 lg:px-8">
-                <div className="flex items-center gap-4 sm:gap-8 lg:gap-40 justify-center lg:justify-center">
+                <div className="flex items-center gap-4 sm:gap-8 md:gap-40 lg:gap-64 justify-center lg:justify-center">
         
-                    {/* Logo */}
+                    <div className="flex">
+                        {/* Logo */}
                     <div className="Logo w-20 h-5 sm:w-24 sm:h-6 lg:w-[148px] lg:h-[39.29px] shrink-0">
                         <Image src={Logo} alt='Logo' className='w-full h-full'/>
+                    </div>
+
+                    {/* button or trigger the side button */}
+                    <button className='bg-white md:px-2 md:text-2xl rounded-full shadow-[0px_1px_1px_1px_rgba(0,_0,_0,_0.1)]'>
+                        <IoIosArrowForward />
+                    </button>
                     </div>
         
                     {/* Search Bar - Hidden on small tablets, visible on larger */}
@@ -60,10 +67,19 @@ const Navber = () => {
 
             {/* Mobile Navigation */}
             <div className="sm:hidden w-full h-16 flex items-center justify-between px-4 bg-white shadow-sm">
-                {/* Logo */}
+
+                <div className="flex items-center">
+                    {/* Logo */}
                 <div className="Logo w-16 h-4 shrink-0">
                     <Image src={Logo} alt='Logo' className='w-full h-full'/>
                 </div>
+                
+                {/* button or trigger the side button */}
+                <button className='bg-white text-sm px-1 py-1 rounded-full shadow-[0px_1px_1px_1px_rgba(0,_0,_0,_0.1)]'>
+                    <IoIosArrowBack />
+                </button>
+                </div>
+                
 
                 {/* Search Bar for Mobile */}
                 <div className="flex-1 mx-3 h-8">
