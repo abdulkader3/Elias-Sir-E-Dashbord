@@ -32,10 +32,15 @@ export default function RootLayout({
           <Navber onToggleSidebar={() => setSidebarOpen(!sidebarOpen)} sidebarOpen={sidebarOpen} />
 
           <div className="flex">
+
             <div className={sidebarOpen ? 'sidebar-enter' : 'sidebar-exit'}>
+
               {sidebarOpen && <Sidebar onLinkClick={() => setSidebarOpen(false)}/>}
+
             </div>
+
             {children}
+            
           </div>
 
         </div>
