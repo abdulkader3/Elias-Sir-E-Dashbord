@@ -1,145 +1,14 @@
 'use client';
 import React, { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import { FiChevronDown, FiList, FiGrid } from 'react-icons/fi'
+import Image from 'next/image'
 import AllProductsGrid from './AllProductsGrid'
+import { products } from './OnlyForView'
 
 const AllProductsCompo1 = () => {
+    const router = useRouter()
     const [viewMode, setViewMode] = useState('list')
-
-    const products = [
-        {
-            id: 1,
-            name: 'Cublit Smart Watch',
-            description: 'Lorem ipsum dolor sit amet consectetur adipiscing elit.',
-            sku: 'FROX-13563',
-            price: '$576.28',
-            status: 'Active',
-            qty: 556,
-            rating: 5,
-            sales: '188 / 2058'
-        },
-        {
-            id: 2,
-            name: 'Cublit Smart Watch',
-            description: 'Lorem ipsum dolor sit amet consectetur adipiscing elit.',
-            sku: 'FROX-13563',
-            price: '$576.28',
-            status: 'Active',
-            qty: 556,
-            rating: 5,
-            sales: '188 / 2058'
-        },
-        {
-            id: 3,
-            name: 'Cublit Smart Watch',
-            description: 'Lorem ipsum dolor sit amet consectetur adipiscing elit.',
-            sku: 'FROX-13563',
-            price: '$576.28',
-            status: 'Active',
-            qty: 556,
-            rating: 5,
-            sales: '188 / 2058'
-        },
-        {
-            id: 4,
-            name: 'Cublit Smart Watch',
-            description: 'Lorem ipsum dolor sit amet consectetur adipiscing elit.',
-            sku: 'FROX-13563',
-            price: '$576.28',
-            status: 'Active',
-            qty: 556,
-            rating: 5,
-            sales: '188 / 2058'
-        },
-        {
-            id: 5,
-            name: 'Cublit Smart Watch',
-            description: 'Lorem ipsum dolor sit amet consectetur adipiscing elit.',
-            sku: 'FROX-13563',
-            price: '$576.28',
-            status: 'Active',
-            qty: 556,
-            rating: 5,
-            sales: '188 / 2058'
-        },
-        {
-            id: 6,
-            name: 'Cublit Smart Watch',
-            description: 'Lorem ipsum dolor sit amet consectetur adipiscing elit.',
-            sku: 'FROX-13563',
-            price: '$576.28',
-            status: 'Active',
-            qty: 556,
-            rating: 5,
-            sales: '188 / 2058'
-        },
-        {
-            id: 7,
-            name: 'Cublit Smart Watch',
-            description: 'Lorem ipsum dolor sit amet consectetur adipiscing elit.',
-            sku: 'FROX-13563',
-            price: '$576.28',
-            status: 'Active',
-            qty: 556,
-            rating: 5,
-            sales: '188 / 2058'
-        },
-        {
-            id: 8,
-            name: 'Cublit Smart Watch',
-            description: 'Lorem ipsum dolor sit amet consectetur adipiscing elit.',
-            sku: 'FROX-13563',
-            price: '$576.28',
-            status: 'Active',
-            qty: 556,
-            rating: 5,
-            sales: '188 / 2058'
-        },
-        {
-            id: 9,
-            name: 'Cublit Smart Watch',
-            description: 'Lorem ipsum dolor sit amet consectetur adipiscing elit.',
-            sku: 'FROX-13563',
-            price: '$576.28',
-            status: 'Active',
-            qty: 556,
-            rating: 5,
-            sales: '188 / 2058'
-        },
-        {
-            id: 10,
-            name: 'Cublit Smart Watch',
-            description: 'Lorem ipsum dolor sit amet consectetur adipiscing elit.',
-            sku: 'FROX-13563',
-            price: '$576.28',
-            status: 'Active',
-            qty: 556,
-            rating: 5,
-            sales: '188 / 2058'
-        },
-        {
-            id: 11,
-            name: 'Cublit Smart Watch',
-            description: 'Lorem ipsum dolor sit amet consectetur adipiscing elit.',
-            sku: 'FROX-13563',
-            price: '$576.28',
-            status: 'Active',
-            qty: 556,
-            rating: 5,
-            sales: '188 / 2058'
-        },
-        {
-            id: 12,
-            name: 'Cublit Smart Watch',
-            description: 'Lorem ipsum dolor sit amet consectetur adipiscing elit.',
-            sku: 'FROX-13563',
-            price: '$576.28',
-            status: 'Active',
-            qty: 556,
-            rating: 5,
-            sales: '188 / 2058'
-        }
-    ]
 
     const renderStars = (rating) => {
         return (
@@ -172,7 +41,7 @@ const AllProductsCompo1 = () => {
                         </button>
                     </div>
                 </div>
-                <AllProductsGrid />
+                <AllProductsGrid products={products} onProductClick={(productId) => router.push(`/ProductDetails/${productId}`)} />
             </div>
         )
     }
@@ -264,14 +133,27 @@ const AllProductsCompo1 = () => {
                             <tr key={product.id} className={`border-b border-gray-100 hover:bg-gray-50 transition-colors ${index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}`}>
                                 {/* Image Column */}
                                 <td className="px-6 py-4">
-                                    <div className="w-14 h-14 bg-gray-200 rounded-lg flex items-center justify-center">
-                                        {/* Image placeholder - will be filled later */}
+                                    <div className="w-14 h-14 bg-gray-200 rounded-lg flex items-center justify-center overflow-hidden">
+                                        {product.image ? (
+                                            <Image 
+                                                src={product.image}
+                                                alt={product.name}
+                                                width={56}
+                                                height={56}
+                                                className="w-full h-full object-cover"
+                                            />
+                                        ) : (
+                                            <span className="text-gray-400 text-xs">No Image</span>
+                                        )}
                                     </div>
                                 </td>
 
                                 {/* Name Column */}
                                 <td className="px-6 py-4">
-                                    <div>
+                                    <div
+                                        onClick={() => router.push(`/ProductDetails/${product.id}`)}
+                                        className="cursor-pointer hover:opacity-70 transition-opacity"
+                                    >
                                         <p className="text-sm font-semibold text-gray-900">{product.name}</p>
                                         <p className="text-xs text-gray-500 mt-1">{product.description}</p>
                                     </div>

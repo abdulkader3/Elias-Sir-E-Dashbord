@@ -1,42 +1,51 @@
 'use client'
 
 import React, { useState } from 'react'
+import { useRouter } from 'next/navigation'
+import Image from 'next/image'
 import { FiBold, FiItalic, FiUnderline, FiList, FiImage } from 'react-icons/fi'
 import { MdClose } from 'react-icons/md'
+import { products } from './OnlyForView'
 
-const ProductDetails = () => {
-    const [productName, setProductName] = useState('')
-    const [description, setDescription] = useState('')
-    const [category, setCategory] = useState('')
-    const [brand, setBrand] = useState('')
-    const [sku, setSku] = useState('FOX-2983')
-    const [stockQuantity, setStockQuantity] = useState('1258')
-    const [regularPrice, setRegularPrice] = useState('$500')
-    const [salePrice, setSalePrice] = useState('$460')
-    const [taxStatus, setTaxStatus] = useState('Taxable')
-    const [taxClass, setTaxClass] = useState('Standard')
-    const [tags, setTags] = useState(['smartwatch', 'Apple', 'Watch', 'smartphone', 'iPhone13 max'])
+const ProductDetails = ({ productId }) => {
+    const router = useRouter()
+
+    // Find product from imported products array based on productId
+    const product = productId ? products.find(p => p.id === parseInt(productId)) || products[0] : products[0]
+
+    const [productName, setProductName] = useState(product.name)
+    const [description, setDescription] = useState(product.description)
+    const [sku, setSku] = useState(product.sku)
+    const [stockQuantity, setStockQuantity] = useState(product.qty.toString())
+    const [price, setPrice] = useState(product.price)
+    const [status, setStatus] = useState(product.status)
     const [uploadedImages, setUploadedImages] = useState([
-        { name: 'Product_thumbnail_1.png', progress: 45 },
-        { name: 'Product_thumbnail_2.png', progress: 100 },
-        { name: 'Product_thumbnail_3.png', progress: 100 },
-        { name: 'Product_thumbnail_4.png', progress: 100 },
-        { name: 'Product_thumbnail_5.png', progress: 100 },
+        { name: 'Product_thumbnail_main.png', progress: 100, image: product.image },
     ])
-
-    const handleRemoveTag = (index) => {
-        setTags(tags.filter((_, i) => i !== index))
-    }
 
     const handleRemoveImage = (index) => {
         setUploadedImages(uploadedImages.filter((_, i) => i !== index))
+    }
+
+    const handleBack = () => {
+        router.back()
     }
 
     return (
         <div className=" w-full min-h-screen bg-gray-50 p-8">
             <div className="max-w-7xl mx-auto">
                 {/* Header */}
-                <h1 className="text-3xl font-bold text-gray-900 mb-8">Product Details</h1>
+                <div className="flex items-center gap-4 mb-8">
+                    {productId && (
+                        <button
+                            onClick={handleBack}
+                            className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg font-medium hover:bg-gray-300 transition"
+                        >
+                            ← Back
+                        </button>
+                    )}
+                    <h1 className="text-3xl font-bold text-gray-900">Product Details</h1>
+                </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                     {/* Left Column - Form */}
@@ -87,34 +96,6 @@ const ProductDetails = () => {
                             </div>
                         </div>
 
-                        {/* Category */}
-                        <div>
-                            <label className="block text-sm font-medium text-gray-900 mb-2">
-                                Category
-                            </label>
-                            <select
-                                value={category}
-                                onChange={(e) => setCategory(e.target.value)}
-                                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-400 bg-white"
-                            >
-                                <option value="">Type Category here</option>
-                            </select>
-                        </div>
-
-                        {/* Brand */}
-                        <div>
-                            <label className="block text-sm font-medium text-gray-900 mb-2">
-                                Brand
-                            </label>
-                            <select
-                                value={brand}
-                                onChange={(e) => setBrand(e.target.value)}
-                                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-400 bg-white"
-                            >
-                                <option value="">Type Brand name here</option>
-                            </select>
-                        </div>
-
                         {/* SKU and Stock Quantity */}
                         <div className="grid grid-cols-2 gap-4">
                             <div>
@@ -125,7 +106,7 @@ const ProductDetails = () => {
                                     type="text"
                                     value={sku}
                                     onChange={(e) => setSku(e.target.value)}
-                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-500 placeholder-gray-400"
+                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700 placeholder-gray-400"
                                 />
                             </div>
                             <div>
@@ -136,95 +117,59 @@ const ProductDetails = () => {
                                     type="text"
                                     value={stockQuantity}
                                     onChange={(e) => setStockQuantity(e.target.value)}
-                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-500 placeholder-gray-400"
+                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700 placeholder-gray-400"
                                 />
                             </div>
                         </div>
 
-                        {/* Regular Price and Sale Price */}
+                        {/* Price and Status */}
                         <div className="grid grid-cols-2 gap-4">
                             <div>
                                 <label className="block text-sm font-medium text-gray-900 mb-2">
-                                    Regular Price
+                                    Price
                                 </label>
                                 <input
                                     type="text"
-                                    value={regularPrice}
-                                    onChange={(e) => setRegularPrice(e.target.value)}
-                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-500 placeholder-gray-400"
+                                    value={price}
+                                    onChange={(e) => setPrice(e.target.value)}
+                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700 placeholder-gray-400"
                                 />
                             </div>
                             <div>
                                 <label className="block text-sm font-medium text-gray-900 mb-2">
-                                    Sale price
-                                </label>
-                                <input
-                                    type="text"
-                                    value={salePrice}
-                                    onChange={(e) => setSalePrice(e.target.value)}
-                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-500 placeholder-gray-400"
-                                />
-                            </div>
-                        </div>
-
-                        {/* Tax Status and Tax Class */}
-                        <div className="grid grid-cols-2 gap-4">
-                            <div>
-                                <label className="block text-sm font-medium text-gray-900 mb-2">
-                                    Tax status
+                                    Status
                                 </label>
                                 <select
-                                    value={taxStatus}
-                                    onChange={(e) => setTaxStatus(e.target.value)}
+                                    value={status}
+                                    onChange={(e) => setStatus(e.target.value)}
                                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-600 bg-white"
                                 >
-                                    <option value="Taxable">Taxable</option>
+                                    <option value="Active">Active</option>
+                                    <option value="Inactive">Inactive</option>
                                 </select>
-                            </div>
-                            <div>
-                                <label className="block text-sm font-medium text-gray-900 mb-2">
-                                    Tax class
-                                </label>
-                                <select
-                                    value={taxClass}
-                                    onChange={(e) => setTaxClass(e.target.value)}
-                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-600 bg-white"
-                                >
-                                    <option value="Standard">Standard</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        {/* Tags */}
-                        <div>
-                            <label className="block text-sm font-medium text-gray-900 mb-2">
-                                Tag
-                            </label>
-                            <div className="flex flex-wrap gap-2">
-                                {tags.map((tag, index) => (
-                                    <span
-                                        key={index}
-                                        className="inline-flex items-center gap-1 bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-medium"
-                                    >
-                                        {tag}
-                                        <button
-                                            onClick={() => handleRemoveTag(index)}
-                                            className="ml-1 text-blue-500 hover:text-blue-700"
-                                        >
-                                            ×
-                                        </button>
-                                    </span>
-                                ))}
                             </div>
                         </div>
                     </div>
 
                     {/* Right Column - Product Gallery and Preview */}
                     <div className="lg:col-span-1 space-y-6">
-                        {/* Product Image Preview - Placeholder */}
+                        {/* Product Image Preview */}
                         <div>
-                            <div className="w-full aspect-square bg-gray-100 rounded-lg flex items-center justify-center border-2 border-dashed border-gray-300">
-                                {/* Image placeholder - will be filled later */}
+                            <label className="block text-sm font-medium text-gray-900 mb-3">
+                                Product Image
+                            </label>
+                            <div className="w-full aspect-square bg-gray-100 rounded-lg flex items-center justify-center border-2 border-dashed border-gray-300 overflow-hidden">
+                                {product.image ? (
+                                    <Image 
+                                        src={product.image}
+                                        alt={product.name}
+                                        width={300}
+                                        height={300}
+                                        className="w-full h-full object-cover"
+                                    />
+                                ) : (
+                                    <span className="text-gray-400">No Image</span>
+                                )}
                             </div>
                         </div>
 
@@ -250,9 +195,19 @@ const ProductDetails = () => {
                         <div className="space-y-3">
                             {uploadedImages.map((image, index) => (
                                 <div key={index} className="flex items-center gap-3">
-                                    {/* Image Thumbnail Placeholder */}
-                                    <div className="w-12 h-12 bg-gray-200 rounded shrink-0 flex items-center justify-center">
-                                        {/* Thumbnail will be filled later */}
+                                    {/* Image Thumbnail */}
+                                    <div className="w-12 h-12 bg-gray-200 rounded shrink-0 flex items-center justify-center overflow-hidden">
+                                        {image.image ? (
+                                            <Image 
+                                                src={image.image}
+                                                alt={image.name}
+                                                width={48}
+                                                height={48}
+                                                className="w-full h-full object-cover"
+                                            />
+                                        ) : (
+                                            <span className="text-gray-400 text-xs">No Img</span>
+                                        )}
                                     </div>
                                     <div className="flex-1 min-w-0">
                                         <p className="text-sm text-gray-700 truncate">
@@ -288,8 +243,11 @@ const ProductDetails = () => {
 
                 {/* Action Buttons */}
                 <div className="flex gap-4 justify-end mt-8">
-                    <button className="px-6 py-2.5 bg-gray-100 text-gray-700 rounded-lg font-medium hover:bg-gray-200 transition">
-                        Cancel
+                    <button
+                        onClick={productId ? handleBack : undefined}
+                        className="px-6 py-2.5 bg-gray-100 text-gray-700 rounded-lg font-medium hover:bg-gray-200 transition"
+                    >
+                        {productId ? 'Cancel' : 'Cancel'}
                     </button>
                     <button className="px-6 py-2.5 bg-red-500 text-white rounded-lg font-medium hover:bg-red-600 transition">
                         Delete
