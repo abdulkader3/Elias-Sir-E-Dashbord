@@ -24,9 +24,10 @@ const ReCharts = () => {
 
             </div>
 
+            <div className="w-[692px] h-[210px] ">
+                <Image src={chart} className='w-full h-full' alt='chart'/>
+            </div>
 
-
-            <Image src={chart} width={692} height={210}/>
             <div className="flex gap-8">
                 <Paragraph text='Jan'/>
                 <Paragraph text='Feb'/>
