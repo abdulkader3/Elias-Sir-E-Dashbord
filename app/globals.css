@@ -19,9 +19,35 @@
   }
 }
 
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
 
+@keyframes slideOutLeft {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
 
+.sidebar-enter {
+  animation: slideInLeft 0.3s ease-in-out forwards;
+}
 
+.sidebar-exit {
+  animation: slideOutLeft 0.3s ease-in-out forwards;
+}
 
 
 
