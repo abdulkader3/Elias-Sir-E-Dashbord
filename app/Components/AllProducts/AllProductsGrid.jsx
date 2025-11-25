@@ -1,24 +1,26 @@
 
 'use client';
 import React, { useState } from 'react'
+import { useRouter } from 'next/navigation'
+import Image from 'next/image'
 import { MdMoreVert } from 'react-icons/md'
 import { FaStar } from 'react-icons/fa'
+import { products as defaultProducts } from './OnlyForView'
 
-const AllProductsGrid = () => {
+const AllProductsGrid = ({ products, onProductClick }) => {
+    const router = useRouter()
     const [currentPage, setCurrentPage] = useState(1)
 
-    // Sample product data
-    const products = Array(12).fill(null).map((_, i) => ({
-        id: i + 1,
-        name: 'Cubiit Smart Watch',
-        rating: 4.5,
-        reviews: 0,
-        price: '$576.28',
-        sku: 'FROX-13563',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur neque nunc, lacinita at tempus ante. Fusdantit et sed. Phoediusn et nisi nisl turpis feeaun iegat sit non usu. Aliqusm ultricies focius et sit ultricies facilisis.',
-        status: 'Active',
-        stock: '186 / 2058'
-    }))
+    // Use props if provided, otherwise use default products from OnlyForView
+    const productList = products || defaultProducts
+
+    const handleProductClick = (productId) => {
+        if (onProductClick) {
+            onProductClick(productId)
+        } else {
+            router.push(`/ProductDetails/${productId}`)
+        }
+    }
 
     const renderStars = (rating) => {
         return (
@@ -35,11 +37,24 @@ const AllProductsGrid = () => {
     }
 
     const ProductCard = ({ product }) => (
-        <div className="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
+        <div
+            onClick={() => handleProductClick(product.id)}
+            className="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow cursor-pointer hover:border-purple-300"
+        >
             {/* Product Image Placeholder */}
             <div className="relative mb-4">
-                <div className="w-full h-40 bg-gray-100 rounded-lg flex items-center justify-center mb-3">
-                    {/* Image will go here */}
+                <div className="w-full h-40 bg-gray-100 rounded-lg flex items-center justify-center mb-3 overflow-hidden">
+                    {product.image ? (
+                        <Image 
+                            src={product.image}
+                            alt={product.name}
+                            width={200}
+                            height={160}
+                            className="w-full h-full object-cover"
+                        />
+                    ) : (
+                        <span className="text-gray-400">No Image</span>
+                    )}
                 </div>
                 <button className="absolute top-2 right-2 text-gray-400 hover:text-gray-600">
                     <MdMoreVert size={20} />
@@ -83,7 +98,7 @@ const AllProductsGrid = () => {
         <div className="w-full">
             {/* Products Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-                {products.map(product => (
+                {productList.map(product => (
                     <ProductCard key={product.id} product={product} />
                 ))}
             </div>
