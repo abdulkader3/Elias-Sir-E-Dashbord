@@ -35,7 +35,6 @@ const page = () => {
 
 
       <div className="w-full bg-[#E8EDF2] h-full">
-        <h1 className="text-2xl font-bold text-gray-900 p-6">Transations List</h1>
         <Purchase />
 
         {/* Pagination */}
@@ -62,6 +61,8 @@ const page = () => {
           </button>
         </div>
       </div>
+
+      
     </section>
   );
 };

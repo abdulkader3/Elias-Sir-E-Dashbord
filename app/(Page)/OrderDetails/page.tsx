@@ -95,23 +95,29 @@ const page = () => {
         </table>
 
         {/* Summary */}
-        <div className="w-64 ml-auto mt-6">
+        <div className="w-64 ml-auto mt-6  text-[#7E7E8F] text-sm">
           <div className="flex justify-between py-1">
-            <p>Subtotal</p>
+            <p>Subtotal:</p>
             <p>$344.92</p>
           </div>
           <div className="flex justify-between py-1">
-            <p>Shipping</p>
+            <p>Tax(20%):</p>
             <p>$10.00</p>
           </div>
           <div className="flex justify-between py-1">
-            <p>Tax (8%)</p>
+            <p>Discount:</p>
             <p>$25.00</p>
           </div>
 
-          <div className="flex justify-between mt-3 font-bold text-gray-900 text-lg border-t pt-3">
-            <p>Total</p>
+          <div className="flex justify-between mt-3 font-bold text-[#7E7E8F] text-lg border-t pt-3">
+            <p>Total:</p>
             <p>$380.00</p>
+          </div>
+
+
+          <div className="flex justify-between mt-3 text-[#7E7E8F] border-t pt-3">
+            <p>Status:</p>
+            <button className='text-[#50D1B2] h-8 w-[97px] bg-[#E8EDF2] rounded-lg'>Pending</button>
           </div>
         </div>
       </div>
