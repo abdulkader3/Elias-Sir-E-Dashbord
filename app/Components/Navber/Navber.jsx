@@ -17,7 +17,7 @@ const Navber = ({ onToggleSidebar, sidebarOpen }) => {
         <>
             {/* Desktop & Tablet Navigation */}
             <div className="hidden sm:flex w-full h-16 sm:h-20 lg:h-24 items-center justify-center px-4 sm:px-6 lg:px-8">
-                <div className="flex items-center gap-4 sm:gap-8 md:gap-40 lg:gap-64 justify-center lg:justify-center">
+                <div className="flex items-center gap-4 sm:gap-8 md:gap-20 lg:gap-40 justify-center lg:justify-center">
         
                     <div className="flex">
                         {/* Logo */}
