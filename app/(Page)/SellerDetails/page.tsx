@@ -1,6 +1,9 @@
 'use client';
+import Image from 'next/image';
+import ReCharts from '../../Components/Chart_From_Rechart/ReChart';
 import React, { useState } from 'react';
 import { FiStar, FiChevronRight, FiChevronLeft } from 'react-icons/fi';
+import Profile from '../../../public/photos/profile01.jpg'
 
 const SellerDetailsPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -79,8 +82,8 @@ const SellerDetailsPage = () => {
           <div className="bg-white rounded-lg p-6 shadow-sm mb-6">
             {/* Seller Avatar - Placeholder */}
             <div className="flex justify-center mb-4">
-              <div className="w-24 h-24 bg-gray-300 rounded-full flex items-center justify-center">
-                {/* Avatar image placeholder */}
+              <div className="w-24 h-24 bg-gray-300 rounded-full flex items-center justify-center overflow-hidden object-cover object-center">
+                  <Image src={Profile} alt='Profile' className='w-full h-full'/>
               </div>
             </div>
 
@@ -193,9 +196,10 @@ const SellerDetailsPage = () => {
 
         {/* Right Content */}
         <div className="lg:col-span-2 space-y-6">
+
           {/* Revenue Section */}
-          <div className="bg-white rounded-lg p-6 shadow-sm">
-            <div className="flex justify-between items-center mb-6">
+          <div className="bg-white rounded-lg shadow-sm">
+            <div className="flex justify-between items-center mb-6 p-6">
               <h2 className="text-xl font-bold text-gray-900">Revenue</h2>
               <div className="flex gap-2">
                 {['All', 'Day', 'Month', 'Year'].map((period) => (
@@ -210,7 +214,7 @@ const SellerDetailsPage = () => {
             </div>
 
             {/* Revenue Cards */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 mb-6">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 mb-6 p-6">
               {revenueData.map((item, idx) => (
                 <div
                   key={idx}
@@ -223,16 +227,15 @@ const SellerDetailsPage = () => {
             </div>
 
             {/* Chart Placeholder */}
-            <div className="bg-gray-50 rounded-lg h-64 flex items-center justify-center border border-gray-200">
+            
               {/* Chart will be displayed here */}
-              <div className="text-center text-gray-400">
-                <p className="text-sm">Chart Placeholder</p>
-              </div>
-            </div>
+              <ReCharts/>
+            
           </div>
 
           {/* Products Section */}
           <div className="bg-white rounded-lg p-6 shadow-sm">
+            
             <h2 className="text-xl font-bold text-gray-900 mb-6">Products</h2>
 
             {/* Table */}
