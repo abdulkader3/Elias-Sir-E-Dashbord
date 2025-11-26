@@ -52,6 +52,7 @@ const SellerDetailsPage = () => {
       sales: '556 ↑',
       available: '453',
       price: '$578.28',
+      image: '/productsImage/1.png',
     },
     {
       id: 2,
@@ -60,6 +61,7 @@ const SellerDetailsPage = () => {
       sales: '556 ↑',
       available: '453',
       price: '$578.28',
+      image: '/productsImage/2.png',
     },
     {
       id: 3,
@@ -68,6 +70,7 @@ const SellerDetailsPage = () => {
       sales: '556 ↑',
       available: '453',
       price: '$578.28',
+      image: '/productsImage/3.png',
     },
   ];
 
@@ -270,8 +273,8 @@ const SellerDetailsPage = () => {
                   {products.map((product, idx) => (
                     <tr key={idx} className="border-b border-gray-100 hover:bg-gray-50">
                       <td className="py-4 px-4">
-                        {/* Product image placeholder */}
-                        <div className="w-12 h-12 bg-gray-300 rounded"></div>
+                        {/* Product image */}
+                        <Image src={product.image} alt={product.name} width={48} height={48} className="rounded object-cover" />
                       </td>
                       <td className="py-4 px-4 text-gray-900 font-medium">
                         {product.name}

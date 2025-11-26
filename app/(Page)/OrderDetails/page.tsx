@@ -1,6 +1,14 @@
 'use client'
 
 import React from 'react'
+import Image from 'next/image'
+import { FaRegPaperPlane } from 'react-icons/fa'
+import { IoBagHandleOutline } from 'react-icons/io5'
+import { LuUser, LuUserRound } from 'react-icons/lu'
+import Image1 from '../../../public/productsImage/1.png'
+import Image2 from '../../../public/productsImage/2.png'
+import Image3 from '../../../public/productsImage/3.png'
+import Image4 from '../../../public/productsImage/4.png'
 
 const page = () => {
   return (
@@ -41,7 +49,7 @@ const page = () => {
         {/* Customer Info */}
         <div className="bg-white p-6 rounded-lg border border-gray-200">
           <div className="flex items-start gap-4">
-            <div className="w-10 h-10 bg-gray-300 rounded-full shrink-0"></div>
+            <div className="w-10 h-10 bg-gray-300 rounded-full shrink-0 flex justify-center items-center text-2xl"><LuUserRound/></div>
             <div className="flex-1">
               <h3 className="text-gray-900 font-semibold mb-3">Customer</h3>
               <div className="space-y-2 text-sm">
@@ -59,7 +67,9 @@ const page = () => {
         {/* Order Info */}
         <div className="bg-white p-6 rounded-lg border border-gray-200">
           <div className="flex items-start gap-4">
-            <div className="w-10 h-10 bg-gray-300 rounded shrink-0"></div>
+
+            <div className="w-10 h-10 bg-gray-300 rounded-full shrink-0 flex justify-center items-center text-2xl"> <IoBagHandleOutline/> </div>
+
             <div className="flex-1">
               <h3 className="text-gray-900 font-semibold mb-3">Order Info</h3>
               <div className="space-y-2 text-sm">
@@ -77,7 +87,7 @@ const page = () => {
         {/* Deliver to */}
         <div className="bg-white p-6 rounded-lg border border-gray-200">
           <div className="flex items-start gap-4">
-            <div className="w-10 h-10 bg-gray-300 rounded shrink-0"></div>
+            <div className="w-10 h-10 bg-gray-300 rounded-full shrink-0 flex justify-center items-center text-2xl"><FaRegPaperPlane/></div>
             <div className="flex-1">
               <h3 className="text-gray-900 font-semibold mb-3">Deliver to</h3>
               <div className="space-y-2 text-sm">
@@ -135,6 +145,7 @@ const page = () => {
             </tr>
           </thead>
           <tbody>
+
             {/* Product Row 1 */}
             <tr className="border-b border-gray-200">
               <td className="py-4 px-2">
@@ -142,8 +153,14 @@ const page = () => {
               </td>
               <td className="py-4 px-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-yellow-200 rounded flex items-center justify-center">
-                    {/* Product icon placeholder */}
+                  <div className="w-10 h-10 bg-yellow-200 rounded flex items-center justify-center relative">
+                    <Image
+                      src={Image1}
+                      alt="Bose noise cancelling"
+                      width={40}
+                      height={40}
+                      className="rounded object-cover"
+                    />
                   </div>
                   <span className="text-gray-700">Bose noise cancelling</span>
                 </div>
@@ -160,8 +177,14 @@ const page = () => {
               </td>
               <td className="py-4 px-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-gray-300 rounded flex items-center justify-center">
-                    {/* Product icon placeholder */}
+                  <div className="w-10 h-10 bg-gray-300 rounded flex items-center justify-center relative">
+                    <Image
+                      src={Image2}
+                      alt="Philips wireless head phone"
+                      width={40}
+                      height={40}
+                      className="rounded object-cover"
+                    />
                   </div>
                   <span className="text-gray-700">Philips wireless head phone</span>
                 </div>
@@ -178,8 +201,14 @@ const page = () => {
               </td>
               <td className="py-4 px-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-red-200 rounded flex items-center justify-center">
-                    {/* Product icon placeholder */}
+                  <div className="w-10 h-10 bg-red-200 rounded flex items-center justify-center relative">
+                    <Image
+                      src={Image3}
+                      alt="Cumlit smart watch"
+                      width={40}
+                      height={40}
+                      className="rounded object-cover"
+                    />
                   </div>
                   <span className="text-gray-700">Cumlit smart watch</span>
                 </div>
@@ -196,8 +225,14 @@ const page = () => {
               </td>
               <td className="py-4 px-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-gray-400 rounded flex items-center justify-center">
-                    {/* Product icon placeholder */}
+                  <div className="w-10 h-10 bg-gray-400 rounded flex items-center justify-center relative">
+                    <Image
+                      src={Image4}
+                      alt="Google Pixel Buds"
+                      width={40}
+                      height={40}
+                      className="rounded object-cover"
+                    />
                   </div>
                   <span className="text-gray-700">Google Pixel Buds</span>
                 </div>
