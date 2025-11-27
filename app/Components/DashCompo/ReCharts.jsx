@@ -4,7 +4,7 @@ import SellsItem from '@/app/Components/DashCompo/SellsItem'
 import { BiParagraph } from 'react-icons/bi'
 import Paragraph from '@/app/Components/Paragraph'
 import Image from 'next/image'
-import chart from '../../../public/photos/Group 1.png'
+import ReChart01 from '../Chart_From_Rechart/ReChart01'
 
 const ReCharts = () => {
     return (
@@ -25,10 +25,10 @@ const ReCharts = () => {
             </div>
 
             <div className="w-[692px] h-[210px] ">
-                <Image src={chart} className='w-full h-full' alt='chart'/>
+                <ReChart01/>
             </div>
 
-            <div className="flex gap-8">
+            <div className="flex gap-9 mt-5">
                 <Paragraph text='Jan'/>
                 <Paragraph text='Feb'/>
                 <Paragraph text='Mar'/>

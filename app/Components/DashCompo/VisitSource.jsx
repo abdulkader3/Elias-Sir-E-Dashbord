@@ -1,11 +1,12 @@
 import Image from 'next/image'
 import React from 'react'
-import donut from '../../../public/photos/Group 1.png'
 import { BsThreeDotsVertical } from 'react-icons/bs'
+import ReChart03 from '../Chart_From_Rechart/ReChart03'
+
 
 export default function VisitSource() {
   return (
-    <section className="w-[363px] bg-white rounded-2xl p-6 shadow-sm">
+    <section className="w-full bg-white rounded-2xl p-6 shadow-sm">
       
       {/* Header */}
       <div className="flex justify-between items-center border-b pb-4 border-b-[#e2e2ea]">
@@ -15,11 +16,7 @@ export default function VisitSource() {
 
       {/* Donut Chart */}
       <div className="mt-6 flex justify-center">
-        <Image 
-          src={donut}
-          alt="Donut Chart"
-          className="w-[180px] h-auto"
-        />
+        <ReChart03/>
       </div>
 
       {/* Legend */}

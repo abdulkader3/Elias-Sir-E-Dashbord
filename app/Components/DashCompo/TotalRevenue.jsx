@@ -1,11 +1,12 @@
 import Image from 'next/image'
 import React from 'react'
-import revenue from '../../../public/photos/Group 1.png'
 import { BsThreeDotsVertical } from 'react-icons/bs'
+import ReChart01 from '../Chart_From_Rechart/ReChart01'
+
 
 export default function TotalRevenue() {
   return (
-    <section className="w-[363px] bg-white rounded-2xl p-6 shadow-sm">
+    <section className="w-full bg-white rounded-2xl p-6 shadow-sm">
       
       {/* Header */}
       <div className="flex justify-between items-center border-b pb-4 border-b-[#e2e2ea]">
@@ -14,12 +15,8 @@ export default function TotalRevenue() {
       </div>
 
       {/* Chart */}
-      <div className="mt-6 flex justify-center">
-        <Image 
-          src={revenue}
-          alt="Revenue Chart"
-          className="w-full h-auto"
-        />
+      <div className="w-full h-[250px] mt-6 flex justify-center">
+        <ReChart01/>
       </div>
 
       {/* Legend */}
