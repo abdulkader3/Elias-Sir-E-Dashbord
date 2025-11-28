@@ -8,15 +8,17 @@ import ReChart01 from '../Chart_From_Rechart/ReChart01'
 
 const ReCharts = () => {
     return (
-        <div className='w-[752px] h-[502px] bg-[#ffffff] rounded-2xl py-[18px] px-[24px] m-[26px]'>
-            <div className='flex justify-between border-b pb-6 border-b-[#e2e2ea]'>
+        <div className='w-full lg:w-[752px] h-auto lg:h-[502px] bg-[#ffffff] rounded-2xl py-4 lg:py-[18px] px-4 lg:px-[24px] m-2 sm:m-4 lg:m-[26px] shadow-sm'>
+            <div className='flex flex-col sm:flex-row sm:justify-between border-b pb-4 lg:pb-6 border-b-[#e2e2ea] gap-2'>
                 <p className='text-base font-bold'>Sales Performance</p>
-                <p className='text-[12px] font-normal text-[#9A9AAF]'>Today’s</p>
-                <p className='text-[12px] font-normal text-[#9A9AAF]'>Monthly</p>
-                <BsThreeDotsVertical className='flex justify-between text-[#7E7E8F] font-normal text-lg cursor-pointer' />
+                <div className='flex gap-2 sm:gap-4 items-center'>
+                    <p className='text-[11px] sm:text-[12px] font-normal text-[#9A9AAF]'>Today's</p>
+                    <p className='text-[11px] sm:text-[12px] font-normal text-[#9A9AAF]'>Monthly</p>
+                    <BsThreeDotsVertical className='flex justify-between text-[#7E7E8F] font-normal text-base sm:text-lg cursor-pointer' />
+                </div>
             </div>
 
-            <div className='flex gap-6 py-[18px] mb-[100px]'>
+            <div className='flex flex-wrap gap-2 sm:gap-4 lg:gap-6 py-4 lg:py-[18px] mb-8 lg:mb-[100px]'>
                 <SellsItem className='!bg-[#FC8D9D]' text='Completed'/>
                  <SellsItem className='!bg-[#F3BCFD]' text='Pending'/>
                 <SellsItem className='!bg-[#80B7FB]' text='Unpaid'/>
@@ -24,11 +26,11 @@ const ReCharts = () => {
 
             </div>
 
-            <div className="w-[692px] h-[210px] ">
+            <div className="w-full h-[150px] sm:h-[180px] lg:h-[210px] overflow-x-auto">
                 <ReChart01/>
             </div>
 
-            <div className="flex gap-9 mt-5">
+            <div className="flex flex-wrap gap-3 sm:gap-6 lg:gap-9 mt-4 lg:mt-5 justify-center sm:justify-start">
                 <Paragraph text='Jan'/>
                 <Paragraph text='Feb'/>
                 <Paragraph text='Mar'/>

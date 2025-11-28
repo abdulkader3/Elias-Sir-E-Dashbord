@@ -12,8 +12,9 @@ const page = () => {
   return (
     <>
 
-      <div className="w-full bg-[#E8EDF2] h-full">
-        <div className='gap-6 flex justify-between items-center p-6 w-full '>
+      <div className="w-full bg-[#E8EDF2] min-h-screen">
+        {/* Sales Cards Section */}
+        <div className='gap-3 sm:gap-4 lg:gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 p-3 sm:p-4 lg:p-6 w-full '>
           <SellsCard />
           <SellsCard />
           <SellsCard />
@@ -21,14 +22,17 @@ const page = () => {
         </div>
 
 
-        <div className='flex '>
+        {/* Charts Section */}
+        <div className='flex flex-col lg:flex-row gap-3 sm:gap-4 lg:gap-0'>
           <ReCharts />
           <ChartSeller />
         </div>
 
+        {/* Purchase Section */}
         <Purchase />
 
-        <div className="flex gap-6 p-6">
+        {/* Bottom Widgets Section */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-6 p-3 sm:p-4 lg:p-6">
           <MarketView />
           <VisitSource />
           <TotalRevenue />

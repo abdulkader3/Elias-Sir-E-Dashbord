@@ -20,10 +20,10 @@ export default function ChartSeller() {
   }, [])
 
   return (
-    <div className="w-[364.5px] h-[502px] bg-[#fbfbfc] rounded-2xl py-[18px] px-[24px] m-[26px] relative">
+    <div className="w-full lg:w-[364.5px] h-auto lg:h-[502px] bg-[#fbfbfc] rounded-2xl py-4 lg:py-[18px] px-4 lg:px-[24px] m-2 sm:m-4 lg:m-[26px] relative shadow-sm">
 
       {/* Header */}
-      <div className="flex justify-between items-center border-b pb-6 border-b-[#e2e2ea] relative">
+      <div className="flex justify-between items-center border-b pb-4 lg:pb-6 border-b-[#e2e2ea] relative">
         <p className="text-base font-bold">Best Sellers</p>
 
         {/* Three Dots Button */}
@@ -48,7 +48,7 @@ export default function ChartSeller() {
       </div>
 
       {/* Seller List */}
-      <div className="py-5">
+      <div className="py-4 lg:py-5 max-h-[400px] lg:max-h-none overflow-y-auto">
         {[1, 2, 3, 4, 5, 6].map((i) => (
           <WidgetItem
             key={i}

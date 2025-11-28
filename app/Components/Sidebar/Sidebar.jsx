@@ -29,14 +29,14 @@ const Sidebar = ({ onLinkClick }) => {
             {/* Menu Items */}
             <div className="space-y-2">
                 {/* Dashboard */}
-                <Link href="/Dashboard" onClick={handleLinkClick}>
+                <Link href="/" onClick={handleLinkClick}>
                     <div className={`flex items-center gap-3 rounded-lg px-4 py-3 cursor-pointer transition ${
-                        isActive('/Dashboard')
+                        isActive('/')
                             ? 'bg-linear-to-r from-purple-500 to-purple-600 text-white'
                             : 'text-gray-500 hover:bg-gray-50'
                     }`}>
                         <div className={`w-5 h-5 rounded flex items-center justify-center ${
-                            isActive('/Dashboard') ? 'bg-white/30' : ''
+                            isActive('/') ? 'bg-white/30' : ''
                         }`}>
                             <BiSolidDashboard/>
                         </div>

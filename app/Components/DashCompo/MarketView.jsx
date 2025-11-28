@@ -6,21 +6,21 @@ import { BsThreeDotsVertical } from 'react-icons/bs'
 
 export default function MarketView() {
   return (
-    <section className="w-full bg-white rounded-2xl p-6 shadow-sm">
+    <section className="w-full h-auto bg-white rounded-2xl p-4 sm:p-6 shadow-sm">
       
       {/* Header */}
-      <div className="flex justify-between items-center border-b pb-4 border-b-[#e2e2ea]">
-        <p className="text-base font-bold">Market Overview</p>
-        <BsThreeDotsVertical className="text-[#7E7E8F] text-xl cursor-pointer" />
+      <div className="flex justify-between items-center border-b pb-3 sm:pb-4 border-b-[#e2e2ea]">
+        <p className="text-sm sm:text-base font-bold">Market Overview</p>
+        <BsThreeDotsVertical className="text-[#7E7E8F] text-lg sm:text-xl cursor-pointer" />
       </div>
 
       {/* Chart Image */}
-      <div className="mt-6 flex justify-center">
+      <div className="mt-4 sm:mt-6 flex justify-center h-[150px] sm:h-[200px] overflow-x-auto">
        <ReChart02/>
       </div>
 
       {/* Bottom Labels */}
-      <div className="flex justify-between mt-3">
+      <div className="flex justify-between mt-2 sm:mt-3 gap-1">
         <Paragraph text="Mon" />
         <Paragraph text="Tue" />
         <Paragraph text="Wed" />
