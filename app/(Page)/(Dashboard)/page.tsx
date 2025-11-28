@@ -12,14 +12,9 @@ const page = () => {
   return (
     <>
 
-<<<<<<< HEAD:app/(Page)/(Dashboard)/page.tsx
       <div className="w-full bg-[#E8EDF2] min-h-screen">
         {/* Sales Cards Section */}
         <div className='gap-3 sm:gap-4 lg:gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 p-3 sm:p-4 lg:p-6 w-full '>
-=======
-      <div className="w-full bg-[#E8EDF2] h-full">
-        <div className='gap-6 flex justify-between items-center p-6 w-full '>
->>>>>>> a11e45549fa199c586d15e03772db2d9a3c65ad8:app/(Page)/Dashboard/page.tsx
           <SellsCard />
           <SellsCard />
           <SellsCard />
@@ -47,10 +42,7 @@ const page = () => {
       </div>
 
 
-<<<<<<< HEAD:app/(Page)/(Dashboard)/page.tsx
 
-=======
->>>>>>> a11e45549fa199c586d15e03772db2d9a3c65ad8:app/(Page)/Dashboard/page.tsx
 
     </>
   )
