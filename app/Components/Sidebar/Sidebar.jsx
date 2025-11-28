@@ -9,6 +9,7 @@ import { CiBoxes } from 'react-icons/ci'
 import { RiSecurePaymentLine } from 'react-icons/ri'
 import { GrTransaction } from 'react-icons/gr'
 import { FaUserFriends } from 'react-icons/fa'
+import DarkMoodButton from '../Ui/DarkMoodButton'
 
 const Sidebar = ({ onLinkClick }) => {
     const pathname = usePathname()
@@ -201,6 +202,13 @@ const Sidebar = ({ onLinkClick }) => {
                     </div>
                 </div>
             </div>
+
+
+            {/* Derk Mode Button */}
+              <div className="my-10">
+                <DarkMoodButton/>
+              </div>
+            {/* Derk Mode Button */}
 
         </div>
     )
