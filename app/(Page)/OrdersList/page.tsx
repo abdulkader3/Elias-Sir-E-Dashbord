@@ -51,23 +51,23 @@ const page = () => {
   }
 
   return (
-    <div className="w-full bg-gray-50 p-6">
+    <div className="w-full bg-gray-50 p-3 sm:p-4 md:p-6">
       {/* Header */}
-      <div className="flex justify-between items-start mb-8">
+      <div className="flex flex-col sm:flex-row justify-between items-start gap-4 mb-6 sm:mb-8">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900 mb-1">Orders List</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-1">Orders List</h1>
         </div>
-        <div className="text-sm text-gray-500">
+        <div className="text-xs sm:text-sm text-gray-500 whitespace-nowrap">
           📅 Feb 15, 2022 - Feb 21, 2022
         </div>
       </div>
 
       {/* Filters Bar */}
-      <div className="flex gap-4 items-center mb-8 bg-white p-4 rounded-lg">
+      <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 items-stretch sm:items-center mb-6 sm:mb-8 bg-white p-3 sm:p-4 rounded-lg">
         <select 
           value={categoryValue}
           onChange={(e) => setCategoryValue(e.target.value)}
-          className="px-4 py-2 border border-gray-200 rounded-lg text-sm text-gray-600 bg-white cursor-pointer"
+          className="px-3 sm:px-4 py-2 border border-gray-200 rounded-lg text-xs sm:text-sm text-gray-600 bg-white cursor-pointer flex-1 sm:flex-none"
         >
           <option value="all">All Category</option>
         </select>
@@ -76,18 +76,18 @@ const page = () => {
           type="date" 
           value={dateValue}
           onChange={(e) => setDateValue(e.target.value)}
-          className="px-4 py-2 border border-gray-200 rounded-lg text-sm text-gray-600 bg-white cursor-pointer"
+          className="px-3 sm:px-4 py-2 border border-gray-200 rounded-lg text-xs sm:text-sm text-gray-600 bg-white cursor-pointer flex-1 sm:flex-none"
         />
         
         <select 
           value={statusValue}
           onChange={(e) => setStatusValue(e.target.value)}
-          className="px-4 py-2 border border-gray-200 rounded-lg text-sm text-gray-600 bg-white cursor-pointer"
+          className="px-3 sm:px-4 py-2 border border-gray-200 rounded-lg text-xs sm:text-sm text-gray-600 bg-white cursor-pointer flex-1 sm:flex-none"
         >
           <option value="all">Status</option>
         </select>
 
-        <button className="px-4 py-2 border border-gray-200 rounded-lg text-sm text-gray-600 bg-white cursor-pointer hover:bg-gray-50">
+        <button className="px-3 sm:px-4 py-2 border border-gray-200 rounded-lg text-xs sm:text-sm text-gray-600 bg-white cursor-pointer hover:bg-gray-50 flex-1 sm:flex-none">
           🔽 Filters
         </button>
       </div>
@@ -95,8 +95,8 @@ const page = () => {
       {/* Table Section */}
       <div className="bg-white rounded-lg shadow-sm overflow-hidden">
         {/* Table Header */}
-        <div className="flex justify-between items-center px-6 py-4 border-b border-gray-200">
-          <h2 className="text-lg font-semibold text-gray-900">Recent Orders</h2>
+        <div className="flex justify-between items-center px-3 sm:px-6 py-4 border-b border-gray-200">
+          <h2 className="text-base sm:text-lg font-semibold text-gray-900">Recent Orders</h2>
           <button className="text-gray-400 hover:text-gray-600 text-xl">⋯</button>
         </div>
 
@@ -105,28 +105,28 @@ const page = () => {
           <table className="w-full">
             <thead>
               <tr className="bg-gray-50 border-b border-gray-200">
-                <th className="px-6 py-4 text-left">
+                <th className="px-3 sm:px-6 py-4 text-left">
                   <input type="checkbox" className="w-4 h-4 border-gray-300 rounded cursor-pointer" />
                 </th>
-                <th className="px-6 py-4 text-left text-sm font-semibold text-gray-600">Order ID</th>
-                <th className="px-6 py-4 text-left text-sm font-semibold text-gray-600">Product</th>
-                <th className="px-6 py-4 text-left text-sm font-semibold text-gray-600">Payment Method</th>
-                <th className="px-6 py-4 text-left text-sm font-semibold text-gray-600">Date</th>
-                <th className="px-6 py-4 text-left text-sm font-semibold text-gray-600">Status</th>
-                <th className="px-6 py-4 text-left text-sm font-semibold text-gray-600">Total</th>
-                <th className="px-6 py-4 text-left text-sm font-semibold text-gray-600">Actions</th>
+                <th className="px-0 shrink-0 sm:px-6 py-4 text-left text-xs sm:text-sm font-semibold text-gray-600">Order ID</th>
+                <th className="px-0 sm:px-6 py-4 text-left text-xs sm:text-sm font-semibold text-gray-600">Product</th>
+                <th className="hidden lg:table-cell px-3 sm:px-6 py-4 text-left text-xs sm:text-sm font-semibold text-gray-600">Payment Method</th>
+                <th className="hidden md:table-cell px-3 sm:px-6 py-4 text-left text-xs sm:text-sm font-semibold text-gray-600">Date</th>
+                <th className="px-0 sm:px-6 py-4 text-left text-xs sm:text-sm font-semibold text-gray-600">Status</th>
+                <th className="px-0 sm:px-6 py-4 text-left text-xs sm:text-sm font-semibold text-gray-600">Total</th>
+                <th className="px-0 sm:px-6 py-4 text-left text-xs sm:text-sm font-semibold text-gray-600">Actions</th>
               </tr>
             </thead>
             <tbody>
               {orders.map((order, index) => (
                 <tr key={index} className="border-b border-gray-200 hover:bg-gray-50 transition-colors cursor-pointer" onClick={() => window.location.href = `/OrderDetails?id=${index}`}>
-                  <td className="px-6 py-4">
+                  <td className="px-3 sm:px-6 py-4">
                     <input type="checkbox" className="w-4 h-4 border-gray-300 rounded cursor-pointer" onClick={(e) => e.stopPropagation()} />
                   </td>
-                  <td className="px-6 py-4 text-sm text-gray-600">{order.id}</td>
-                  <td className="px-6 py-4 text-sm">
-                    <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 rounded-lg bg-gray-100 flex-shrink-0 flex items-center justify-center overflow-hidden">
+                  <td className="px-3 sm:px-6 py-4 text-xs sm:text-sm text-gray-600">{order.id}</td>
+                  <td className="px-3 sm:px-6 py-4 text-xs sm:text-sm">
+                    <div className="flex items-center gap-2 sm:gap-3">
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gray-100 flex-shrink-0 flex items-center justify-center overflow-hidden">
                         <Image 
                           src={order.productImage} 
                           alt={order.productName}
@@ -135,19 +135,19 @@ const page = () => {
                           className="w-full h-full object-cover"
                         />
                       </div>
-                      <span className="text-gray-900 font-medium">{order.productName}</span>
+                      <span className="text-gray-900 font-medium hidden sm:inline">{order.productName}</span>
                     </div>
                   </td>
-                  <td className="px-6 py-4 text-sm text-gray-600">{order.paymentMethod}</td>
-                  <td className="px-6 py-4 text-sm text-gray-600">{order.date}</td>
-                  <td className="px-6 py-4 text-sm">
+                  <td className="hidden lg:table-cell px-3 sm:px-6 py-4 text-xs sm:text-sm text-gray-600">{order.paymentMethod}</td>
+                  <td className="hidden md:table-cell px-3 sm:px-6 py-4 text-xs sm:text-sm text-gray-600">{order.date}</td>
+                  <td className="px-3 sm:px-6 py-4 text-xs sm:text-sm">
                     <div className="flex items-center gap-2">
                       <div className={`w-2 h-2 rounded-full ${getStatusDot(order.status)}`}></div>
                       <span className={`font-medium ${getStatusColor(order.status)}`}>{order.status}</span>
                     </div>
                   </td>
-                  <td className="px-6 py-4 text-sm text-gray-900 font-medium">{order.total}</td>
-                  <td className="px-6 py-4 text-sm">
+                  <td className="px-3 sm:px-6 py-4 text-xs sm:text-sm text-gray-900 font-medium">{order.total}</td>
+                  <td className="px-3 sm:px-6 py-4 text-xs sm:text-sm">
                     <button className="text-gray-400 hover:text-gray-600" onClick={(e) => e.stopPropagation()}>⋯</button>
                   </td>
                 </tr>
