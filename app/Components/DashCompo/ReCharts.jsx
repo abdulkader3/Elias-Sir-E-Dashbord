@@ -11,6 +11,7 @@ const ReCharts = () => {
         <div className='w-full lg:w-[752px] h-auto lg:h-[502px] bg-[#ffffff] rounded-2xl py-4 lg:py-[18px] px-4 lg:px-[24px] m-2 sm:m-4 lg:m-[26px] shadow-sm'>
             <div className='flex flex-col sm:flex-row sm:justify-between border-b pb-4 lg:pb-6 border-b-[#e2e2ea] gap-2'>
                 <p className='text-base font-bold'>Sales Performance</p>
+<<<<<<< HEAD
                 <div className='flex gap-2 sm:gap-4 items-center'>
                     <p className='text-[11px] sm:text-[12px] font-normal text-[#9A9AAF]'>Today's</p>
                     <p className='text-[11px] sm:text-[12px] font-normal text-[#9A9AAF]'>Monthly</p>
@@ -19,6 +20,14 @@ const ReCharts = () => {
             </div>
 
             <div className='flex flex-wrap gap-2 sm:gap-4 lg:gap-6 py-4 lg:py-[18px] mb-8 lg:mb-[100px]'>
+=======
+                <p className='text-[12px] font-normal text-[#9A9AAF]'>Today’s</p>
+                <p className='text-[12px] font-normal text-[#9A9AAF]'>Monthly</p>
+                <BsThreeDotsVertical className='flex justify-between text-[#7E7E8F] font-normal text-lg cursor-pointer' />
+            </div>
+
+            <div className='flex gap-6 py-[18px] mb-[100px]'>
+>>>>>>> a11e45549fa199c586d15e03772db2d9a3c65ad8
                 <SellsItem className='!bg-[#FC8D9D]' text='Completed'/>
                  <SellsItem className='!bg-[#F3BCFD]' text='Pending'/>
                 <SellsItem className='!bg-[#80B7FB]' text='Unpaid'/>
@@ -26,11 +35,19 @@ const ReCharts = () => {
 
             </div>
 
+<<<<<<< HEAD
             <div className="w-full h-[150px] sm:h-[180px] lg:h-[210px] overflow-x-auto">
                 <ReChart01/>
             </div>
 
             <div className="flex flex-wrap gap-3 sm:gap-6 lg:gap-9 mt-4 lg:mt-5 justify-center sm:justify-start">
+=======
+            <div className="w-[692px] h-[210px] ">
+                <ReChart01/>
+            </div>
+
+            <div className="flex gap-9 mt-5">
+>>>>>>> a11e45549fa199c586d15e03772db2d9a3c65ad8
                 <Paragraph text='Jan'/>
                 <Paragraph text='Feb'/>
                 <Paragraph text='Mar'/>
