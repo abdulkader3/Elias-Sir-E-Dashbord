@@ -1,22 +1,29 @@
 import Image from 'next/image'
 import React from 'react'
-import img1 from '../../../public/photos/Avatar1 (2).png'
 
-const WidgetItem = () => {
+const WidgetItem = ({ title, text, price, sales, img }) => {
   return (
-    <div className='flex gap-2'>
-        <Image src={img1} width={40} height={40}/>
+    <div className="flex items-center justify-between w-full py-3">
+      
+      <div className="flex items-center gap-3">
+        <Image 
+          src={img} 
+          width={40} 
+          height={40} 
+          className="rounded-full"
+          alt={title}
+        />
 
-        <div className='flex justify-between pb-4 text-sm'>
-            <p>Esther Howard</p>
-            <p className='font-semibold'>$446.61</p>
+        <div className="flex flex-col">
+          <p className="text-sm font-medium">{title}</p>
+          <p className="text-[12px] text-[#9A9AAF]">{text}</p>
         </div>
+      </div>
 
-          <div className='flex justify-between pb-6 text-[12px] font-normal text-[#9A9AAF]'>
-            <p>MasterCard</p>
-            <p className='font-semibold'>985 sales</p>
-        </div>
-        
+      <div className="flex flex-col text-right">
+        <p className="text-sm font-semibold">${price}</p>
+        <p className="text-[12px] text-[#9A9AAF]">{sales} sales</p>
+      </div>
     </div>
   )
 }
