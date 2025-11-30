@@ -7,46 +7,44 @@ const DarkMoodButton = () => {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    // Check if dark mode class already exists on the html element
+    const isDarkMode = document.documentElement.classList.contains('dark');
+    setIsDark(isDarkMode);
     setMounted(true);
-    // Check localStorage and system preference on mount
-    const savedMode = localStorage.getItem('darkMode');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    // Listen for changes to the dark class
+    const observer = new MutationObserver(() => {
+      const hasDarkClass = document.documentElement.classList.contains('dark');
+      setIsDark(hasDarkClass);
+    });
+
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
     
-    const shouldBeDark = savedMode ? JSON.parse(savedMode) : prefersDark;
-    
-    if (shouldBeDark) {
-      document.documentElement.classList.add('dark');
-      setIsDark(true);
-    } else {
-      document.documentElement.classList.remove('dark');
-      setIsDark(false);
-    }
+    return () => observer.disconnect();
   }, []);
 
   const toggleDarkMode = () => {
-    const newState = !isDark;
-    setIsDark(newState);
-    localStorage.setItem('darkMode', JSON.stringify(newState));
+    const htmlElement = document.documentElement;
     
-    if (newState) {
-      document.documentElement.classList.add('dark');
-      console.log('Dark mode enabled');
+    if (htmlElement.classList.contains('dark')) {
+      htmlElement.classList.remove('dark');
+      localStorage.setItem('darkMode', 'false');
     } else {
-      document.documentElement.classList.remove('dark');
-      console.log('Dark mode disabled');
+      htmlElement.classList.add('dark');
+      localStorage.setItem('darkMode', 'true');
     }
   };
 
   if (!mounted) return null;
 
   return (
-    <div className="flex items-center justify-center gap-4 rounded-full ">
+    <div className="flex items-center justify-center gap-4 rounded-full">
       {/* Moon Icon */}
       <button
         className="rounded-full text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
         aria-label="Dark mode"
       >
-        <IoMoon/>
+        <IoMoon size={20}/>
       </button>
 
       {/* Toggle Switch */}
@@ -66,10 +64,10 @@ const DarkMoodButton = () => {
 
       {/* Sun Icon */}
       <button
-        className=" rounded-full text-gray-400 hover:text-orange-500 dark:hover:text-yellow-400 transition-colors"
+        className="rounded-full text-gray-400 hover:text-orange-500 dark:hover:text-yellow-400 transition-colors"
         aria-label="Light mode"
       >
-        <MdOutlineWbSunny/>
+        <MdOutlineWbSunny size={20}/>
       </button>
     </div>
   );

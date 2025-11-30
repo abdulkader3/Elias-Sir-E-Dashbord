@@ -6,7 +6,7 @@ import ReChart01 from '../Chart_From_Rechart/ReChart01'
 
 export default function TotalRevenue() {
   return (
-    <section className="w-full h-auto bg-white rounded-2xl p-4 sm:p-6 shadow-sm">
+    <section className="w-full h-auto bg-white dark:bg-gray-900 rounded-2xl p-4 sm:p-6 shadow-sm">
       
       {/* Header */}
       <div className="flex justify-between items-center border-b pb-3 sm:pb-4 border-b-[#e2e2ea]">

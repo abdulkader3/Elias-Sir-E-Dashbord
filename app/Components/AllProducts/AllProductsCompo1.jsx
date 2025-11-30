@@ -23,19 +23,19 @@ const AllProductsCompo1 = () => {
     // If grid view is selected, render the grid component
     if (viewMode === 'grid') {
         return (
-            <div className="w-full bg-gray-50 p-6">
+            <div className="w-full p-6 dark:text-white ">
                 <div className="flex justify-between items-center mb-6">
-                    <h1 className="text-2xl font-bold text-gray-900">All Products</h1>
+                    <h1 className="text-2xl font-bold   ">All Products</h1>
                     <div className="flex gap-3">
                         <button
                             onClick={() => setViewMode('list')}
-                            className={`p-2 rounded-lg transition-colors ${viewMode === 'list' ? 'bg-purple-500 text-white' : 'bg-gray-200 text-gray-700'}`}
+                            className={`p-2 rounded-lg transition-colors ${viewMode === 'list' ? 'bg-purple-500 text-white' : 'bg-gray-200  '}`}
                         >
                             <FiList size={20} />
                         </button>
                         <button
                             onClick={() => setViewMode('grid')}
-                            className={`p-2 rounded-lg transition-colors ${viewMode === 'grid' ? 'bg-purple-500 text-white' : 'bg-gray-200 text-gray-700'}`}
+                            className={`p-2 rounded-lg transition-colors ${viewMode === 'grid' ? 'bg-purple-500 text-white' : 'bg-gray-200  '}`}
                         >
                             <FiGrid size={20} />
                         </button>
@@ -47,20 +47,20 @@ const AllProductsCompo1 = () => {
     }
 
     return (
-        <div className="w-full bg-gray-50 p-6">
+        <div className="w-full p-6">
             {/* Header Section */}
             <div className="flex justify-between items-center mb-6">
-                <h1 className="text-2xl font-bold text-gray-900">All Products</h1>
+                <h1 className="text-2xl font-bold   ">All Products</h1>
                 <div className="flex gap-3">
                     <button
                         onClick={() => setViewMode('list')}
-                        className={`p-2 rounded-lg transition-colors ${viewMode === 'list' ? 'bg-purple-500 text-white' : 'bg-gray-200 text-gray-700'}`}
+                        className={`p-2 rounded-lg transition-colors ${viewMode === 'list' ? 'bg-purple-500 text-white' : 'bg-gray-200  '}`}
                     >
                         <FiList size={20} />
                     </button>
                     <button
                         onClick={() => setViewMode('grid')}
-                        className={`p-2 rounded-lg transition-colors ${viewMode === 'grid' ? 'bg-purple-500 text-white' : 'bg-gray-200 text-gray-700'}`}
+                        className={`p-2 rounded-lg transition-colors ${viewMode === 'grid' ? 'bg-purple-500 text-white' : 'bg-gray-200  '}`}
                     >
                         <FiGrid size={20} />
                     </button>
@@ -68,61 +68,61 @@ const AllProductsCompo1 = () => {
             </div>
 
             {/* Table Container */}
-            <div className="bg-white rounded-lg shadow-sm overflow-x-auto">
+            <div className=" rounded-lg shadow-sm overflow-x-auto">
                 <table className="w-full min-w-max">
                     {/* Table Header */}
                     <thead>
-                        <tr className="border-b border-gray-200 bg-gray-50">
+                        <tr className="border-b border-gray-200">
                             <th className="px-6 py-4 text-left">
                                 <div className="flex items-center gap-2">
-                                    <span className="text-sm font-semibold text-gray-700">Image</span>
+                                    <span className="text-sm font-semibold  ">Image</span>
                                     <FiChevronDown size={16} className="text-gray-400" />
                                 </div>
                             </th>
                             <th className="px-6 py-4 text-left">
                                 <div className="flex items-center gap-2">
-                                    <span className="text-sm font-semibold text-gray-700">Name</span>
+                                    <span className="text-sm font-semibold  ">Name</span>
                                     <FiChevronDown size={16} className="text-gray-400" />
                                 </div>
                             </th>
                             <th className="px-6 py-4 text-left">
                                 <div className="flex items-center gap-2">
-                                    <span className="text-sm font-semibold text-gray-700">SKU</span>
+                                    <span className="text-sm font-semibold  ">SKU</span>
                                     <FiChevronDown size={16} className="text-gray-400" />
                                 </div>
                             </th>
                             <th className="px-6 py-4 text-left">
                                 <div className="flex items-center gap-2">
-                                    <span className="text-sm font-semibold text-gray-700">Price</span>
+                                    <span className="text-sm font-semibold  ">Price</span>
                                     <FiChevronDown size={16} className="text-gray-400" />
                                 </div>
                             </th>
                             <th className="px-6 py-4 text-left">
                                 <div className="flex items-center gap-2">
-                                    <span className="text-sm font-semibold text-gray-700">Status</span>
+                                    <span className="text-sm font-semibold  ">Status</span>
                                     <FiChevronDown size={16} className="text-gray-400" />
                                 </div>
                             </th>
                             <th className="px-6 py-4 text-left">
                                 <div className="flex items-center gap-2">
-                                    <span className="text-sm font-semibold text-gray-700">QTY</span>
+                                    <span className="text-sm font-semibold  ">QTY</span>
                                     <FiChevronDown size={16} className="text-gray-400" />
                                 </div>
                             </th>
                             <th className="px-6 py-4 text-left">
                                 <div className="flex items-center gap-2">
-                                    <span className="text-sm font-semibold text-gray-700">Rating</span>
+                                    <span className="text-sm font-semibold  ">Rating</span>
                                     <FiChevronDown size={16} className="text-gray-400" />
                                 </div>
                             </th>
                             <th className="px-6 py-4 text-left">
                                 <div className="flex items-center gap-2">
-                                    <span className="text-sm font-semibold text-gray-700">Sales</span>
+                                    <span className="text-sm font-semibold  ">Sales</span>
                                     <FiChevronDown size={16} className="text-gray-400" />
                                 </div>
                             </th>
                             <th className="px-6 py-4 text-center">
-                                <span className="text-sm font-semibold text-gray-700">•••</span>
+                                <span className="text-sm font-semibold  ">•••</span>
                             </th>
                         </tr>
                     </thead>
@@ -130,10 +130,10 @@ const AllProductsCompo1 = () => {
                     {/* Table Body */}
                     <tbody>
                         {products.map((product, index) => (
-                            <tr key={product.id} className={`border-b border-gray-100 hover:bg-gray-50 transition-colors ${index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}`}>
+                            <tr key={product.id} className={`border-b border-gray-100 hover:bg-gray-50 hover:dark:bg-gray-500 transition-colors ${index % 2 === 0 ? '' : ''}`}>
                                 {/* Image Column */}
                                 <td className="px-6 py-4">
-                                    <div className="w-14 h-14 bg-gray-200 rounded-lg flex items-center justify-center overflow-hidden">
+                                    <div className="w-14 h-14  rounded-lg flex items-center justify-center overflow-hidden">
                                         {product.image ? (
                                             <Image 
                                                 src={product.image}
@@ -154,32 +154,32 @@ const AllProductsCompo1 = () => {
                                         onClick={() => router.push(`/ProductDetails/${product.id}`)}
                                         className="cursor-pointer hover:opacity-70 transition-opacity"
                                     >
-                                        <p className="text-sm font-semibold text-gray-900">{product.name}</p>
-                                        <p className="text-xs text-gray-500 mt-1">{product.description}</p>
+                                        <p className="text-sm font-semibold   ">{product.name}</p>
+                                        <p className="text-xs   mt-1">{product.description}</p>
                                     </div>
                                 </td>
 
                                 {/* SKU Column */}
                                 <td className="px-6 py-4">
-                                    <span className="text-sm text-gray-700">{product.sku}</span>
+                                    <span className="text-sm  ">{product.sku}</span>
                                 </td>
 
                                 {/* Price Column */}
                                 <td className="px-6 py-4">
-                                    <span className="text-sm font-semibold text-gray-900">{product.price}</span>
+                                    <span className="text-sm font-semibold   ">{product.price}</span>
                                 </td>
 
                                 {/* Status Column */}
                                 <td className="px-6 py-4">
                                     <div className="flex items-center gap-2">
                                         <span className="inline-block w-2 h-2 bg-green-400 rounded-full"></span>
-                                        <span className="text-sm text-gray-700">{product.status}</span>
+                                        <span className="text-sm  ">{product.status}</span>
                                     </div>
                                 </td>
 
                                 {/* QTY Column */}
                                 <td className="px-6 py-4">
-                                    <span className="text-sm text-gray-700">{product.qty}</span>
+                                    <span className="text-sm  ">{product.qty}</span>
                                 </td>
 
                                 {/* Rating Column */}
@@ -189,7 +189,7 @@ const AllProductsCompo1 = () => {
 
                                 {/* Sales Column */}
                                 <td className="px-6 py-4">
-                                    <span className="text-sm text-gray-700">{product.sales}</span>
+                                    <span className="text-sm  ">{product.sales}</span>
                                 </td>
 
                                 {/* Actions Column */}
@@ -206,10 +206,10 @@ const AllProductsCompo1 = () => {
             <div className="flex items-center justify-between mt-6">
                 <div className="flex gap-2">
                     <button className="w-10 h-10 rounded-lg bg-purple-500 text-white font-semibold hover:bg-purple-600 transition-colors">1</button>
-                    <button className="w-10 h-10 rounded-lg bg-gray-200 text-gray-700 font-semibold hover:bg-gray-300 transition-colors">2</button>
-                    <button className="w-10 h-10 rounded-lg bg-gray-200 text-gray-700 font-semibold hover:bg-gray-300 transition-colors">3</button>
-                    <button className="w-10 h-10 rounded-lg bg-gray-200 text-gray-700 font-semibold hover:bg-gray-300 transition-colors">4</button>
-                    <button className="w-10 h-10 rounded-lg bg-gray-200 text-gray-700 font-semibold hover:bg-gray-300 transition-colors">5</button>
+                    <button className="w-10 h-10 rounded-lg bg-gray-200   font-semibold hover:bg-gray-300 transition-colors">2</button>
+                    <button className="w-10 h-10 rounded-lg bg-gray-200   font-semibold hover:bg-gray-300 transition-colors">3</button>
+                    <button className="w-10 h-10 rounded-lg bg-gray-200   font-semibold hover:bg-gray-300 transition-colors">4</button>
+                    <button className="w-10 h-10 rounded-lg bg-gray-200   font-semibold hover:bg-gray-300 transition-colors">5</button>
                 </div>
                 <button className="text-purple-500 hover:text-purple-600 font-semibold flex items-center gap-2 transition-colors">
                     Next <span>→</span>

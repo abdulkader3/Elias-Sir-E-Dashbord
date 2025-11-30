@@ -20,7 +20,7 @@ export default function ChartSeller() {
   }, [])
 
   return (
-    <div className="w-full lg:w-[364.5px] h-auto lg:h-[502px] bg-[#fbfbfc] rounded-2xl py-4 lg:py-[18px] px-4 lg:px-[24px] m-2 sm:m-4 lg:m-[26px] relative shadow-sm">
+    <div className="w-full lg:w-[364.5px] h-auto lg:h-[502px] dark:bg-gray-900 rounded-2xl py-4 lg:py-[18px] px-4 lg:px-[24px] m-2 sm:m-4 lg:m-[26px] relative shadow-sm">
 
       {/* Header */}
       <div className="flex justify-between items-center border-b pb-4 lg:pb-6 border-b-[#e2e2ea] relative">
@@ -35,7 +35,7 @@ export default function ChartSeller() {
 
           {/* Dropdown Menu */}
           {open && (
-            <div className="absolute right-0 mt-3 w-40 bg-white shadow-lg rounded-lg py-[14px] px-4 border-[#E8EDF2]">
+            <div className="absolute right-0 mt-3 w-40 dark:bg-gray-900 shadow-lg rounded-lg py-[14px] px-4 border-[#E8EDF2]">
               <List text='Sales report' />
               <List text='Export report' />
               <List text='Profit manage' />
