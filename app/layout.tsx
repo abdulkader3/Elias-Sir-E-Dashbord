@@ -2,6 +2,7 @@
 
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "next-themes";
 import Navber from './Components/Navber/Navber'
 import Sidebar from './Components/Sidebar/Sidebar'
 import { useState, useEffect } from "react";
@@ -42,6 +43,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+
+      {/* dark mode */}
+      <ThemeProvider attribute="class">
         <div className="">
           <Navber onToggleSidebar={() => setSidebarOpen(!sidebarOpen)} sidebarOpen={sidebarOpen} />
 
@@ -58,6 +62,8 @@ export default function RootLayout({
           </div>
 
         </div>
+
+        </ThemeProvider>
       </body>
     </html>
   );
