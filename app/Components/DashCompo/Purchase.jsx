@@ -77,7 +77,7 @@ const statusColor = {
 
 export default function Purchase() {
   return (
-    <div className="w-[95%] sm:w-[97%] mx-auto bg-white rounded-xl shadow-sm p-3 sm:p-4 lg:p-[25px] mb-4">
+    <div className="w-[95%] sm:w-[97%] mx-auto bg-white dark:bg-gray-900 rounded-xl shadow-sm p-3 sm:p-4 lg:p-[25px] mb-4">
       {/* Header */}
       <div className="flex justify-between px-3 sm:px-6 border-b pb-3 sm:pb-[17px] border-b-[#e2e2ea]">
         <p className="text-sm sm:text-base font-bold">Recent Purchases</p>

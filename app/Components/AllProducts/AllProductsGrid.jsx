@@ -39,11 +39,11 @@ const AllProductsGrid = ({ products, onProductClick }) => {
     const ProductCard = ({ product }) => (
         <div
             onClick={() => handleProductClick(product.id)}
-            className="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow cursor-pointer hover:border-purple-300"
+            className="border border-gray-200 dark:border-gray-700 rounded-lg p-4 hover:shadow-md transition-shadow cursor-pointer hover:border-purple-300"
         >
             {/* Product Image Placeholder */}
             <div className="relative mb-4">
-                <div className="w-full h-40 bg-gray-100 rounded-lg flex items-center justify-center mb-3 overflow-hidden">
+                <div className="w-full h-40 bg-gray-100 dark:bg-gray-800 rounded-lg flex items-center justify-center mb-3 overflow-hidden">
                     {product.image ? (
                         <Image 
                             src={product.image}
@@ -56,39 +56,39 @@ const AllProductsGrid = ({ products, onProductClick }) => {
                         <span className="text-gray-400">No Image</span>
                     )}
                 </div>
-                <button className="absolute top-2 right-2 text-gray-400 hover:text-gray-600">
+                <button className="absolute top-2 right-2 text-gray-400 dark:text-gray-600 hover:text-gray-600 dark:hover:text-gray-400">
                     <MdMoreVert size={20} />
                 </button>
             </div>
 
             {/* Product Name */}
-            <h3 className="text-sm font-semibold text-gray-900 mb-2">{product.name}</h3>
+            <h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-2">{product.name}</h3>
 
             {/* Rating */}
             <div className="flex items-center gap-2 mb-3">
                 {renderStars(product.rating)}
-                <span className="text-xs text-gray-500">({product.reviews})</span>
+                <span className="text-xs text-gray-500 dark:text-gray-400">({product.reviews})</span>
             </div>
 
             {/* Price and SKU */}
             <div className="flex items-center justify-between mb-3">
-                <span className="text-sm font-bold text-gray-900">{product.price}</span>
-                <span className="text-xs text-gray-500">{product.sku}</span>
+                <span className="text-sm font-bold text-gray-900 dark:text-white">{product.price}</span>
+                <span className="text-xs text-gray-500 dark:text-gray-400">{product.sku}</span>
             </div>
 
             {/* Description */}
-            <p className="text-xs text-gray-600 mb-3 line-clamp-3">
+            <p className="text-xs text-gray-600 dark:text-gray-300 mb-3 line-clamp-3">
                 {product.description}
             </p>
 
             {/* Status Badge */}
             <div className="flex items-center gap-2 mb-3">
                 <span className="inline-block w-2 h-2 bg-green-500 rounded-full"></span>
-                <span className="text-xs font-medium text-gray-700">{product.status}</span>
+                <span className="text-xs font-medium text-gray-700 dark:text-gray-300">{product.status}</span>
             </div>
 
             {/* Stock Info */}
-            <div className="text-xs text-gray-600 border-t pt-3">
+            <div className="text-xs text-gray-600 dark:text-gray-400 border-t dark:border-gray-700 pt-3">
                 {product.stock}
             </div>
         </div>
@@ -110,7 +110,7 @@ const AllProductsGrid = ({ products, onProductClick }) => {
                     className={`w-10 h-10 rounded-lg font-semibold transition-colors ${
                         currentPage === 1
                             ? 'bg-purple-600 text-white'
-                            : 'bg-white border border-gray-300 text-gray-700 hover:bg-gray-50'
+                            : 'border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800'
                     }`}
                 >
                     1
@@ -120,7 +120,7 @@ const AllProductsGrid = ({ products, onProductClick }) => {
                     className={`w-10 h-10 rounded-lg font-semibold transition-colors ${
                         currentPage === 2
                             ? 'bg-purple-600 text-white'
-                            : 'bg-white border border-gray-300 text-gray-700 hover:bg-gray-50'
+                            : 'border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800'
                     }`}
                 >
                     2
@@ -130,7 +130,7 @@ const AllProductsGrid = ({ products, onProductClick }) => {
                     className={`w-10 h-10 rounded-lg font-semibold transition-colors ${
                         currentPage === 3
                             ? 'bg-purple-600 text-white'
-                            : 'bg-white border border-gray-300 text-gray-700 hover:bg-gray-50'
+                            : 'border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800'
                     }`}
                 >
                     3
@@ -140,7 +140,7 @@ const AllProductsGrid = ({ products, onProductClick }) => {
                     className={`w-10 h-10 rounded-lg font-semibold transition-colors ${
                         currentPage === 4
                             ? 'bg-purple-600 text-white'
-                            : 'bg-white border border-gray-300 text-gray-700 hover:bg-gray-50'
+                            : 'border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800'
                     }`}
                 >
                     4
@@ -150,12 +150,12 @@ const AllProductsGrid = ({ products, onProductClick }) => {
                     className={`w-10 h-10 rounded-lg font-semibold transition-colors ${
                         currentPage === 5
                             ? 'bg-purple-600 text-white'
-                            : 'bg-white border border-gray-300 text-gray-700 hover:bg-gray-50'
+                            : 'border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800'
                     }`}
                 >
                     5
                 </button>
-                <button className="px-4 h-10 bg-white border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 flex items-center gap-2">
+                <button className="px-4 h-10 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 flex items-center gap-2">
                     Next →
                 </button>
             </div>

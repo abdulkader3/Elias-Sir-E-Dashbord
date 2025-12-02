@@ -12,7 +12,7 @@ const page = () => {
   return (
     <>
 
-      <div className="w-full bg-[#E8EDF2] min-h-screen">
+      <div className="w-full min-h-screen">
         {/* Sales Cards Section */}
         <div className='gap-3 sm:gap-4 lg:gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 p-3 sm:p-4 lg:p-6 w-full '>
           <SellsCard />

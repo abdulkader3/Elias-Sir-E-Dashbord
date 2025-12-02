@@ -5,7 +5,7 @@ import { MdOutlineDelete } from 'react-icons/md'
 
 const SellsCard = () => {
   return (
-    <div className='w-full h-auto min-h-[128px] lg:w-[265px] lg:h-[128px] py-4 px-4 lg:px-[19px] bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow'>
+    <div className='w-full h-auto min-h-[128px] lg:w-[265px] lg:h-[128px] py-4 px-4 lg:px-[19px] bg-white dark:bg-gray-900 rounded-2xl shadow-sm hover:shadow-md transition-shadow'>
         <div className='flex justify-between text-[#7E7E8F] font-normal text-[11px] sm:text-[12px]'>
             <p>Total sells</p>
             <BsThreeDotsVertical />

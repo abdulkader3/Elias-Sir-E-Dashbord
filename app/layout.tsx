@@ -26,6 +26,14 @@ export default function RootLayout({
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    // Initialize dark mode from localStorage
+    const savedMode = localStorage.getItem('darkMode');
+    if (savedMode === 'true') {
+      document.documentElement.classList.add('dark');
+    } else if (savedMode === 'false') {
+      document.documentElement.classList.remove('dark');
+    }
+
     // Check if mobile on mount
     setIsMobile(window.innerWidth < 640);
 

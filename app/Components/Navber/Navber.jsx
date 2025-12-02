@@ -32,14 +32,14 @@ const Navber = ({ onToggleSidebar, sidebarOpen }) => {
                             sidebarOpen ? 'rotate-180' : 'rotate-0'
                         }`}
                     >
-                        <IoIosArrowForward />
+                        <IoIosArrowForward className=' dark:text-black' />
                     </button>
                     </div>
         
                     {/* Search Bar - Hidden on small tablets, visible on larger */}
                     <div className="hidden md:block w-32 sm:w-40 lg:w-[360px] h-8 sm:h-10 lg:h-12 shrink-0">
                         <input 
-                            className='w-full h-full shadow-2xs bg-[#F5F5FA] pl-4 sm:pl-8 lg:pl-10 rounded-2xl text-xs sm:text-sm lg:text-base' 
+                            className='w-full h-full shadow-2xs bg-[#F5F5FA] dark:text-black pl-4 sm:pl-8 lg:pl-10 rounded-2xl text-xs sm:text-sm lg:text-base' 
                             placeholder='Search' 
                             type="search" 
                         />
@@ -92,9 +92,9 @@ const Navber = ({ onToggleSidebar, sidebarOpen }) => {
                 
 
                 {/* Search Bar for Mobile */}
-                <div className="flex-1 mx-3 h-8">
+                <div className="flex-1 mx-3 h-8 dark:text-black">
                     <input 
-                        className='w-full h-full shadow-2xs bg-[#F5F5FA] pl-3 rounded-lg text-xs' 
+                        className='w-full h-full shadow-2xs bg-[#F5F5FA] dark:text-black pl-3 rounded-lg text-xs' 
                         placeholder='Search' 
                         type="search" 
                     />

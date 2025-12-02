@@ -6,7 +6,7 @@ import { BsThreeDotsVertical } from 'react-icons/bs'
 
 export default function MarketView() {
   return (
-    <section className="w-full h-auto bg-white rounded-2xl p-4 sm:p-6 shadow-sm">
+    <section className="w-full h-auto bg-white dark:bg-gray-900 rounded-2xl p-4 sm:p-6 shadow-sm">
       
       {/* Header */}
       <div className="flex justify-between items-center border-b pb-3 sm:pb-4 border-b-[#e2e2ea]">
@@ -15,7 +15,7 @@ export default function MarketView() {
       </div>
 
       {/* Chart Image */}
-      <div className="mt-4 sm:mt-6 flex justify-center h-[150px] sm:h-[200px] overflow-x-auto">
+      <div className="mt-4 sm:mt-6 flex justify-center h-[150px] sm:h-[200px] overflow-x-auto ">
        <ReChart02/>
       </div>
 
