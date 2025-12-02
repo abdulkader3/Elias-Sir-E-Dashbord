@@ -170,12 +170,12 @@ const TransactionsListPage = () => {
   
 
   return (
-    <div className="w-full bg-[#E8EDF2] min-h-screen">
+    <div className="w-full  min-h-screen">
       
       {/* Summary Cards */}
       <div className='gap-3 sm:gap-4 lg:gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 p-3 sm:p-4 lg:p-6 w-full'>
         {summaryCards.map((card) => (
-          <div key={card.id} className='w-full h-auto min-h-32 lg:w-full lg:h-32 py-4 px-4 lg:px-[19px] bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow'>
+          <div key={card.id} className='w-full h-auto min-h-32 lg:w-full lg:h-32 py-4 px-4 lg:px-[19px] dark:bg-gray-900 rounded-2xl shadow-sm hover:shadow-md transition-shadow'>
             <div className='flex justify-between text-[#7E7E8F] font-normal text-[11px] sm:text-[12px]'>
               <p>{card.title}</p>
               <BsThreeDotsVertical />
@@ -211,7 +211,7 @@ const TransactionsListPage = () => {
       </div>
 
       {/* Transactions Table Section */}
-      <div className="w-[95%] sm:w-[97%] mx-auto bg-white rounded-2xl shadow-sm p-3 sm:p-4 lg:p-[25px] mb-6">
+      <div className="w-[95%] sm:w-[97%] mx-auto dark:bg-gray-900 rounded-2xl shadow-sm p-3 sm:p-4 lg:p-[25px] mb-6">
         
         {/* Header */}
         <div className="flex justify-between items-center px-3 sm:px-6 border-b pb-3 sm:pb-[17px] border-b-[#e2e2ea] mb-4 flex-wrap gap-3">
@@ -223,7 +223,7 @@ const TransactionsListPage = () => {
             <select
               value={filter}
               onChange={(e) => setFilter(e.target.value)}
-              className="px-3 py-1 rounded-lg text-xs sm:text-sm font-medium border border-[#e2e2ea] bg-white text-[#7E7E8F] cursor-pointer hover:border-[#50D1B2] transition-all"
+              className="px-3 py-1 rounded-lg text-xs sm:text-sm font-medium border border-[#e2e2ea] dark:bg-gray-900 text-[#7E7E8F] cursor-pointer hover:border-[#50D1B2] transition-all"
             >
               <option value="all">All Status</option>
               <option value="successful">Successful</option>
@@ -235,7 +235,7 @@ const TransactionsListPage = () => {
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              className="px-3 py-1 rounded-lg text-xs sm:text-sm font-medium border border-[#e2e2ea] bg-white text-[#7E7E8F] cursor-pointer hover:border-[#50D1B2] transition-all"
+              className="px-3 py-1 rounded-lg text-xs sm:text-sm font-medium border border-[#e2e2ea] dark:bg-gray-900 text-[#7E7E8F] cursor-pointer hover:border-[#50D1B2] transition-all"
             >
               <option value="recent">Recent</option>
               <option value="oldest">Oldest</option>
@@ -264,8 +264,8 @@ const TransactionsListPage = () => {
           {/* Table Rows - Desktop */}
           <div className="hidden sm:block">
             {transactions.map((transaction, idx) => (
-              <div key={idx} className="grid grid-cols-7 items-center text-xs sm:text-sm py-3 sm:py-4 border-b border-b-[#e2e2ea] hover:bg-gray-50 transition-colors">
-                <p className="font-medium text-[#0F172A]">{transaction.id}</p>
+              <div key={idx} className="grid grid-cols-7 items-center text-xs sm:text-sm py-3 sm:py-4 border-b border-b-[#e2e2ea] hover:bg-gray-50 dark:hover:bg-gray-500 transition-colors">
+                <p className="font-medium text-[#0F172A] dark:text-[#fff] ">{transaction.id}</p>
 
                 {/* Customer */}
                 <div className="flex items-center gap-2">
@@ -284,7 +284,7 @@ const TransactionsListPage = () => {
 
                 <p className="text-xs">{transaction.date}</p>
 
-                <p className="font-semibold text-[#0F172A]">{transaction.amount}</p>
+                <p className="font-semibold text-[#0F172A] dark:text-[#fff]">{transaction.amount}</p>
 
                 {/* Status */}
                 <div className="flex items-center gap-2">
@@ -321,7 +321,7 @@ const TransactionsListPage = () => {
                 <div className="space-y-1 text-xs text-[#9A9AAF]">
                   <div className="flex justify-between">
                     <span>Type:</span>
-                    <span className="font-medium text-[#0F172A] flex items-center gap-1">
+                    <span className="font-medium text-[#0F172A] dark:text-[#fff] flex items-center gap-1">
                       <div 
                         className="w-2 h-2 rounded-full"
                         style={{ backgroundColor: typeColor[transaction.type as keyof typeof typeColor] }}
@@ -335,11 +335,11 @@ const TransactionsListPage = () => {
                   </div>
                   <div className="flex justify-between">
                     <span>Method:</span>
-                    <span className="text-[#0F172A]">{transaction.method}</span>
+                    <span className="text-[#0F172A] dark:text-[#fff]">{transaction.method}</span>
                   </div>
                   <div className="flex justify-between pt-2 border-t border-[#e2e2ea]">
                     <span>Amount:</span>
-                    <span className="font-semibold text-[#0F172A]">{transaction.amount}</span>
+                    <span className="font-semibold text-[#0F172A] dark:text-[#fff]">{transaction.amount}</span>
                   </div>
                 </div>
               </div>

@@ -126,12 +126,12 @@ const PaymentsPage = () => {
   }
 
   return (
-    <div className="w-full bg-[#E8EDF2] min-h-screen">
+    <div className="w-full min-h-screen">
       
       {/* Payment Summary Cards */}
       <div className='gap-3 sm:gap-4 lg:gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 p-3 sm:p-4 lg:p-6 w-full'>
         {paymentCards.map((card) => (
-          <div key={card.id} className='w-full h-auto min-h-32 lg:w-full lg:h-32 py-4 px-4 lg:px-[19px] bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow'>
+          <div key={card.id} className='w-full h-auto min-h-32 lg:w-full lg:h-32 py-4 px-4 lg:px-[19px] dark:bg-gray-900 rounded-2xl shadow-sm hover:shadow-md transition-shadow'>
             <div className='flex justify-between text-[#7E7E8F] font-normal text-[11px] sm:text-[12px]'>
               <p>{card.title}</p>
               <BsThreeDotsVertical />
@@ -167,7 +167,7 @@ const PaymentsPage = () => {
       </div>
 
       {/* Recent Payments Table Section */}
-      <div className="w-[95%] sm:w-[97%] mx-auto bg-white rounded-2xl shadow-sm p-3 sm:p-4 lg:p-[25px] mb-6">
+      <div className="w-[95%] sm:w-[97%] mx-auto dark:bg-gray-900 rounded-2xl shadow-sm p-3 sm:p-4 lg:p-[25px] mb-6">
         
         {/* Header */}
         <div className="flex justify-between items-center px-3 sm:px-6 border-b pb-3 sm:pb-[17px] border-b-[#e2e2ea] mb-4 flex-wrap gap-3">
@@ -209,7 +209,7 @@ const PaymentsPage = () => {
           {/* Table Rows - Desktop */}
           <div className="hidden sm:block">
             {recentPayments.map((payment, idx) => (
-              <div key={idx} className="grid grid-cols-6 items-center text-xs sm:text-sm py-3 sm:py-4 border-b border-b-[#e2e2ea] hover:bg-gray-50 transition-colors">
+              <div key={idx} className="grid grid-cols-6 items-center text-xs sm:text-sm py-3 sm:py-4 border-b border-b-[#e2e2ea] hover:bg-gray-100 hover:dark:bg-gray-500 hover:dark:bg-gray-500 hover:dark:bg-gray-500 hover:dark:bg-gray-500 hover:dark:bg-gray-500 hover:dark:bg-gray-500 hover:dark:bg-gray-500 transition-colors">
                 <p className="font-medium text-[#0F172A]">{payment.id}</p>
 
                 {/* Customer */}

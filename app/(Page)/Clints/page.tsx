@@ -9,9 +9,9 @@ const page = () => {
   return (
     <>
 
-      <div className="w-fullj h-screen">
+      <div className="w-full h-screen">
         <div className='gap-6 flex justify-between items-center p-6 w-full '>
-          <SellsCard />
+        <SellsCard />
         <SellsCard />
         <SellsCard />
         <SellsCard />

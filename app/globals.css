@@ -1,5 +1,5 @@
 @import "tailwindcss";
-
+@custom-variant dark (&:where(.dark, .dark *));
 
 
 html.dark {
@@ -37,6 +37,7 @@ html.dark {
 .sidebar-exit {
   animation: slideOutLeft 0.3s ease-in-out forwards;
 }
+
 
 
 

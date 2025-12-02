@@ -1,57 +1,38 @@
+'use client';
+
 import React, { useState, useEffect } from 'react';
+import { useTheme } from 'next-themes';
 import { IoMoon } from 'react-icons/io5';
 import { MdOutlineWbSunny } from 'react-icons/md';
 
 const DarkMoodButton = () => {
+
+  const { theme, setTheme } = useTheme();
   const [isDark, setIsDark] = useState(false);
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    // Check if dark mode class already exists on the html element
-    const isDarkMode = document.documentElement.classList.contains('dark');
-    setIsDark(isDarkMode);
-    setMounted(true);
+    setIsDark(theme === 'dark');
+  }, [theme]);
 
-    // Listen for changes to the dark class
-    const observer = new MutationObserver(() => {
-      const hasDarkClass = document.documentElement.classList.contains('dark');
-      setIsDark(hasDarkClass);
-    });
-
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
-    
-    return () => observer.disconnect();
-  }, []);
-
-  const toggleDarkMode = () => {
-    const htmlElement = document.documentElement;
-    
-    if (htmlElement.classList.contains('dark')) {
-      htmlElement.classList.remove('dark');
-      localStorage.setItem('darkMode', 'false');
-    } else {
-      htmlElement.classList.add('dark');
-      localStorage.setItem('darkMode', 'true');
-    }
-  };
-
-  if (!mounted) return null;
+  console.log(isDark)
 
   return (
     <div className="flex items-center justify-center gap-4 rounded-full">
-      {/* Moon Icon */}
+
+
+      {/* Sun Icon */}
       <button
-        className="rounded-full text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
-        aria-label="Dark mode"
+        className="rounded-full text-gray-400 hover:text-orange-500 dark:hover:text-yellow-400 transition-colors"
+        aria-label="Light mode"
       >
-        <IoMoon size={20}/>
+        <MdOutlineWbSunny size={20}/>
       </button>
 
       {/* Toggle Switch */}
       <button
-        onClick={toggleDarkMode}
+        onClick={() => setTheme(theme === "dark" ? "light" : "dark" )}
         className={`w-10 h-6 rounded-full transition-all flex items-center justify-center ${
-          isDark ? 'bg-gradient-to-r from-purple-500 to-purple-600' : 'bg-gray-400'
+          isDark ? 'bg-linear-to-r from-purple-500 to-purple-600' : 'bg-gray-400'
         }`}
         aria-label="Toggle dark mode"
       >
@@ -62,13 +43,15 @@ const DarkMoodButton = () => {
         />
       </button>
 
-      {/* Sun Icon */}
+      {/* Moon Icon */}
       <button
-        className="rounded-full text-gray-400 hover:text-orange-500 dark:hover:text-yellow-400 transition-colors"
-        aria-label="Light mode"
+        className="rounded-full text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+        aria-label="Dark mode"
       >
-        <MdOutlineWbSunny size={20}/>
+        <IoMoon size={20}/>
       </button>
+
+
     </div>
   );
 }
